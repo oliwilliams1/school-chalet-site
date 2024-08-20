@@ -1,4 +1,5 @@
 import { Header } from "@/layouts/head"
+import Footer from "@/layouts/footer"
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 
@@ -25,7 +26,7 @@ export default function Index() {
 
       <div className="w-full h-96 bg-slate-300">Small overview of options</div>
 
-      <div className="w-full h-96 bg-slate-500">Footer</div>
+      <Footer />
     </div>
   )
 }
