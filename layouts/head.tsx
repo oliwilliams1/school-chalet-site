@@ -19,8 +19,8 @@ export const Header = () => {
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Other page 1
+          <Link color="foreground" href=".">
+            Home
           </Link>
         </NavbarItem>
         <NavbarItem>
@@ -30,12 +30,9 @@ export const Header = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign up
+          <Button as={Link} color="primary" href="/register" variant="flat">
+            Register
           </Button>
         </NavbarItem>
       </NavbarContent>
