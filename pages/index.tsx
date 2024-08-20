@@ -1,46 +1,20 @@
-import Head from "next/head";
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@nextui-org/button";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/navbar";
+import { Header } from "@/layouts/head"
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
 
 export default function Index() {
+  const [emblaRef] = useEmblaCarousel({loop: false}, [Autoplay()])
+
   return (
     <div>
-      <Navbar shouldHideOnScroll isBordered>
-        <NavbarBrand>
-          <Image
-            src="/favicon.ico"
-            alt="logo"
-            width={36}
-            height={36}
-            className="rounded-full"
-          />
-        </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Other page 1
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Other page 2
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-      </Navbar>
+      <Header />
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          <div className="flex-[0_0_100%] min-w-0 h-[80vh] bg-slate-200">Slide 1</div>
+          <div className="flex-[0_0_100%] min-w-0 h-[80vh] bg-slate-300">Slide 2</div>
+          <div className="flex-[0_0_100%] min-w-0 h-[80vh] bg-slate-400">Slide 3</div>
+        </div>
+      </div>
     </div>
   )
 }
