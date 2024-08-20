@@ -1,6 +1,5 @@
 import { Header } from "@/layouts/head"
 import { Input } from "@nextui-org/input"
-import { FileUpload } from 'primereact/fileupload';
 import { Button } from "@nextui-org/button";
 
 export default function SignUpPage() {
@@ -26,9 +25,9 @@ export default function SignUpPage() {
           <div className="mt-9"></div>
           <Input type="address" label="Physical Address" labelPlacement="outside"/>
 
-          <p className="mt-4 font-normal subpixel-antialiased text-sm">Proof of address</p>
+          <p className="mt-4 mb-1 font-normal subpixel-antialiased text-sm">Proof of address</p>
           <Button className="p-3 bg-slate-100 rounded-lg">Upload</Button>
-          <p className="mt-4 font-normal subpixel-antialiased text-sm">Proof of ID</p>
+          <p className="mt-4 mb-1 font-normal subpixel-antialiased text-sm">Proof of ID</p>
           <Button className="p-3 bg-slate-100 rounded-lg">Upload</Button>
 
           <br />

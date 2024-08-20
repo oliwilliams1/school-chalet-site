@@ -1,4 +1,3 @@
-import Head from "next/head";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -24,8 +23,8 @@ export const Header = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Other page 2
+          <Link color="foreground" href="/options">
+            Our Chalets
           </Link>
         </NavbarItem>
       </NavbarContent>
