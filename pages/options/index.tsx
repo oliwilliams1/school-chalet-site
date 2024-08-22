@@ -20,9 +20,7 @@ export default function StayWithUs() {
     <div className="w-full h-72 bg-slate-100">Info block</div>
 
     <div className="flex w-full h-[90vh] bg-slate-100">
-      <div className="w-1/4 h-full bg-slate-100">
-        <CustomCard />
-        <CustomCard />
+      <div className="w-[25rem] h-full bg-slate-100">
         <CustomCard />
       </div>
       <div className="w-full h-full bg-slate-200">other</div>
