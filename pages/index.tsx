@@ -2,7 +2,7 @@ import { Header } from "@/layouts/head"
 import Footer from "@/layouts/footer"
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-import {Divider} from "@nextui-org/divider";
+import { Divider } from "@nextui-org/divider";
 import { Button } from "@nextui-org/button";
 
 export default function Index() {
@@ -13,7 +13,7 @@ export default function Index() {
 
       <div className="absolute w-full h-[80vh] z-10">
         <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-bold">MAUNGA PEAK</h1>
-        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-10 text-2xl">New Zealand&#39s favourite</h2>
+        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-10 text-2xl">New Zealand{"'"}s favourite</h2>
       </div>
 
       <div className="w-full overflow-hidden" ref={emblaRef}>
