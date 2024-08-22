@@ -14,18 +14,18 @@ export default function Index() {
       <div className="absolute w-full h-[80vh] z-10">
         <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-bold">MAUNGA PEAK</h1>
         <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-10 text-2xl">New Zealand{"'"}s favourite</h2>
+        <Button className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-sky-400">Down</Button>
+      </div>
+
+      <div className="absolute w-full h-[80vh] z-0">
       </div>
 
       <div className="w-full overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          <div className="flex-[0_0_100%] min-w-0 h-[80vh] bg-slate-200">Slide 1</div>
-          <div className="flex-[0_0_100%] min-w-0 h-[80vh] bg-slate-300">Slide 2</div>  
-          <div className="flex-[0_0_100%] min-w-0 h-[80vh] bg-slate-400">Slide 3</div>
+          <div className="flex-[0_0_100%] min-w-0 h-[90vh] bg-slate-200">Slide 1</div>
+          <div className="flex-[0_0_100%] min-w-0 h-[90vh] bg-slate-300">Slide 2</div>  
+          <div className="flex-[0_0_100%] min-w-0 h-[90vh] bg-slate-400">Slide 3</div>
         </div>
-      </div>
-
-      <div className="w-full h-48 bg-slate-900 p-12">
-        <h2 className="text-white text-4xl ">Small info panel</h2>
       </div>
       
       <div className="w-full h-[800px] bg-blue-100 p-20">
@@ -51,12 +51,33 @@ export default function Index() {
       </div>
 
       <div className="w-full h-96 bg-slate-900 p-24">
-        <h2 className="text-white text-4xl ">Small quote/info</h2>
+        <h2 className="text-white text-4xl text-center mb-8">Small quote/info</h2>
+        <p className="text-white text-lg text-center max-w-[60%] ml-auto mr-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eius maiores quae amet quis officia repellat ipsam, earum hic minus reprehenderit non veniam, voluptas, quidem expedita quas nam quod aliquam?</p>
       </div>
 
-      <div className="w-full h-[800px] bg-slate-700 p-24">
-        <h2 className="text-white text-4xl ">Join the club</h2>
-        <Button className="bottom-0 right-0">Register</Button>
+      <div className="w-full h-[400px] bg-slate-700 p-24">
+        <div className="w-full h-full flex flex-col justify-center items-center">
+          <h2 className="text-white text-4xl mb-8">Join the Club</h2>
+          <p className="text-white text-lg text-center max-w-[60%] mb-12">
+            Become a member of our exclusive ski club and enjoy a range of
+            benefits, including discounted lift tickets, early access to
+            events, and access to our private ski lounge.
+          </p>
+          <div className="flex space-x-6">
+            <Button
+              className="bg-white text-slate-700 hover:bg-slate-200"
+              size="lg"
+            >
+              Learn More
+            </Button>
+            <Button
+              className="bg-sky-500 text-white hover:bg-sky-600"
+              size="lg"
+            >
+              Sign Up Now
+            </Button>
+          </div>
+        </div>
       </div>
 
       <div className="w-full h-96 bg-slate-300">Our chalets</div>
