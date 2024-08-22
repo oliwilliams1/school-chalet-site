@@ -3,6 +3,7 @@ import Footer from "@/layouts/footer"
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import {Divider} from "@nextui-org/divider";
+import { Button } from "@nextui-org/button";
 
 export default function Index() {
   const [emblaRef] = useEmblaCarousel({loop: false}, [Autoplay()])
@@ -12,19 +13,19 @@ export default function Index() {
 
       <div className="absolute w-full h-[80vh] z-10">
         <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-bold">MAUNGA PEAK</h1>
-        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-10 text-2xl">New Zealand's favourite</h2>
+        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-10 text-2xl">New Zealand&#39s favourite</h2>
       </div>
 
       <div className="w-full overflow-hidden" ref={emblaRef}>
         <div className="flex">
           <div className="flex-[0_0_100%] min-w-0 h-[80vh] bg-slate-200">Slide 1</div>
-          <div className="flex-[0_0_100%] min-w-0 h-[80vh] bg-slate-300">Slide 2</div>
+          <div className="flex-[0_0_100%] min-w-0 h-[80vh] bg-slate-300">Slide 2</div>  
           <div className="flex-[0_0_100%] min-w-0 h-[80vh] bg-slate-400">Slide 3</div>
         </div>
       </div>
 
-      <div className="w-full h-96 bg-slate-900 p-24">
-        <h2 className="text-white text-4xl ">Blah blah blah</h2>
+      <div className="w-full h-48 bg-slate-900 p-12">
+        <h2 className="text-white text-4xl ">Small info panel</h2>
       </div>
       
       <div className="w-full h-[800px] bg-blue-100 p-20">
@@ -49,9 +50,16 @@ export default function Index() {
           <div className="w-1/5 h-full ml-8 bg-slate-300">Card 5</div>
       </div>
 
-      <div className="w-full h-72 bg-slate-400">Little quote</div>
+      <div className="w-full h-96 bg-slate-900 p-24">
+        <h2 className="text-white text-4xl ">Small quote/info</h2>
+      </div>
 
-      <div className="w-full h-96 bg-slate-300">Small overview of options</div>
+      <div className="w-full h-[800px] bg-slate-700 p-24">
+        <h2 className="text-white text-4xl ">Join the club</h2>
+        <Button className="bottom-0 right-0">Register</Button>
+      </div>
+
+      <div className="w-full h-96 bg-slate-300">Our chalets</div>
 
       <Footer />
     </div>
