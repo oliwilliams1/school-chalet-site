@@ -2,7 +2,7 @@ import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 
 export default function CustomCard() {
   return (
-    <div className="max-w-[1200px] w-full h-full p-4 bg-slate-200">
+    <div className="w-full w-full h-1/3 p-4 bg-slate-200">
       <Card className="w-full h-full" isBlurred isFooterBlurred>
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
           <p className="font-bold">Title</p>
@@ -16,7 +16,7 @@ export default function CustomCard() {
             <p>Find out more -{'>'}</p>
           </div>
         </CardFooter>
-      </Card>
-    </div>
+      </Card> 
+    </div> 
   )
 }
