@@ -35,7 +35,7 @@ export default function Index() {
 
       {/*'Mountain image: https://pixabay.com/photos/mountain-mt-egmont-mt-taranaki-1144506/'*/}
 
-      <InteractiveImage />pl
+      <InteractiveImage />
 
       <div className="w-full h-[600px] bg-slate-200 justify-center items-center pt-10">
         <h2 className="text-4xl text-center mb-10">Logo</h2>
