@@ -31,7 +31,7 @@ export const Header = () => {
       <NavbarContent justify="end">
         <NavbarItem>
           <Button as={Link} color="primary" href="/register" variant="flat">
-            Register
+            Join The Club
           </Button>
         </NavbarItem>
       </NavbarContent>

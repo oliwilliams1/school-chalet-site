@@ -14,7 +14,11 @@ export default function Footer() {
         </div>
         <div className="w-1/2 text-white text-right">
           <div className="text-md space-y-4">
-            <p>Home | Our Chalets | Register</p>
+          <p>
+            <a href=".">Home</a> | 
+            <a href="/options"> Our Chalets</a> | 
+            <a href="/register"> Register</a>
+          </p>
             <p>Find us on our socials</p>
           </div>
           <div className="h-[1px] bg-[rgb(180,170,180)] max-w-[9.5rem] ml-auto my-4"></div>
