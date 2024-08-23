@@ -27,11 +27,11 @@
 		"embla-carousel-react": "^8.2.0",
 		"framer-motion": "~11.1.1",
 		"intl-messageformat": "^10.5.0",
-		"next": "14.2.4",
+		"next": "^14.2.6",
 		"next-themes": "^0.2.1",
 		"primereact": "^10.8.2",
-		"react": "18.3.1",
-		"react-dom": "18.3.1"
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
 	},
 	"devDependencies": {
 		"@types/node": "20.5.7",

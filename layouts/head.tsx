@@ -6,7 +6,7 @@ import {Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/navbar
 
 export const Header = () => {
   return (
-    <Navbar shouldHideOnScroll isBordered>
+    <Navbar isBordered className="mb-[-65px]">
         <NavbarBrand>
           <Image
             src="/favicon.ico"

@@ -18,28 +18,27 @@ export default function Index() {
     <div>
       <Header />
 
-      <div className="absolute w-full h-[80vh] z-10">
-        <h1 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl font-bold">MAUNGA PEAK</h1>
-        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mt-10 text-2xl">New Zealand{"'"}s favourite</h2>
-        <Button className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-sky-400">Down</Button>
+      <div className="absolute w-full h-screen z-10">
+        <h1 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl font-bold">MAUNGA PEAK</h1>
+        <h2 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 mt-12 text-2xl">New Zealand{"'"}s favourite</h2>
+        <Button className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-sky-400">Down</Button>
       </div>
 
-      <div className="absolute w-full h-[80vh] z-0">
-      </div>
-
-      <div className="w-full overflow-hidden" ref={emblaRef}>
+      <div className="w-full h-screen overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          <div className="flex-[0_0_100%] min-w-0 h-[90vh] bg-slate-200">Slide 1</div>
-          <div className="flex-[0_0_100%] min-w-0 h-[90vh] bg-slate-300">Slide 2</div>  
-          <div className="flex-[0_0_100%] min-w-0 h-[90vh] bg-slate-400">Slide 3</div>
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-slate-200">Slide 1</div>
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-slate-300">Slide 2</div>  
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-slate-400">Slide 3</div>
         </div>
       </div>
-      
-      <div className="w-full h-[800px] bg-blue-100 p-20">
+
+      {/*'Mountain image: https://pixabay.com/photos/mountain-mt-egmont-mt-taranaki-1144506/'*/}
+
+      <div className="w-full h-[900px] p-20 z-10 relative bg-cover bg-center" style={{ backgroundImage: `url(images/maunga-hero.jpeg)` }}>
         <h1 className="text-6xl font-bold text-center">THE MOUNTAIN</h1>
         <div className="flex w-full h-full p-14">
-          <div className="w-1/2 h-full mr-8 bg-slate-200">Card 1</div>
-          <div className="w-1/2 h-full ml-8 bg-slate-300">Card 2</div>
+          <div className="w-1/2 h-full mr-8">Card 1</div>
+          <div className="w-1/2 h-full ml-8">Card 2</div>
         </div>
       </div>
 
