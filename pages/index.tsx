@@ -8,6 +8,7 @@ import { Button } from "@nextui-org/button";
 
 import { Header } from "@/layouts/head"
 import Footer from "@/layouts/footer"
+import InteractiveImage from '@/layouts/interactiveImage';
 
 export default function Index() {
   const [emblaRef] = useEmblaCarousel({loop: false}, [Autoplay()])
@@ -20,7 +21,7 @@ export default function Index() {
 
       <div className="absolute w-full h-screen z-10">
         <h1 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl font-bold">MAUNGA PEAK</h1>
-        <h2 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 mt-12 text-2xl">New Zealand{"'"}s favourite</h2>
+        <h2 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 mt-12 text-2xl">A New Zealand Favourite</h2>
         <Button className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-sky-400">Down</Button>
       </div>
 
@@ -34,13 +35,7 @@ export default function Index() {
 
       {/*'Mountain image: https://pixabay.com/photos/mountain-mt-egmont-mt-taranaki-1144506/'*/}
 
-      <div className="w-full h-[900px] p-20 z-10 relative bg-cover bg-center" style={{ backgroundImage: `url(images/maunga-hero.jpeg)` }}>
-        <h1 className="text-6xl font-bold text-center">THE MOUNTAIN</h1>
-        <div className="flex w-full h-full p-14">
-          <div className="w-1/2 h-full mr-8">Card 1</div>
-          <div className="w-1/2 h-full ml-8">Card 2</div>
-        </div>
-      </div>
+      <InteractiveImage />pl
 
       <div className="w-full h-[600px] bg-slate-200 justify-center items-center pt-10">
         <h2 className="text-4xl text-center mb-10">Logo</h2>
