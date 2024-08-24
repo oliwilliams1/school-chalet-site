@@ -1,4 +1,3 @@
-import { Divider } from "@nextui-org/divider";
 import { FacebookIcon, GithubIcon, TwitterIcon, YoutubeIcon } from "@/components/icons";
 
 export default function Footer() {
