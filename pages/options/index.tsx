@@ -11,6 +11,7 @@ import JoinUs from '@/layouts/joinUs';
 
 export default function StayWithUs() {
   const [emblaRef] = useEmblaCarousel({loop: false}, [Autoplay()])
+
   return (
   <div>
     <Header />

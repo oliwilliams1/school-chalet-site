@@ -1,5 +1,9 @@
+import EmblaCarousel from '@/pages/EmblaCarousel';
+import { EmblaOptionsType } from 'embla-carousel'
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 
 const chalets = [
@@ -36,9 +40,13 @@ export default function CustomCards() {
     }
   }, [expandedCardIndex]);
 
+  const OPTIONS: EmblaOptionsType = { loop: true }
+  const SLIDE_COUNT = 5
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
   return (
     <div className="flex w-full h-[90vh] bg-slate-100">
-      <div className="w-[25rem] h-full bg-slate-100">
+      <div className="w-[25rem] h-full bg-slate-100 z-10">
         <div className="w-full h-full">
           {chalets.map((chalet, index) => (
             <motion.div
@@ -74,9 +82,13 @@ export default function CustomCards() {
         </div>
       </div>
 
-      <div className="flex w-full h-full">
-        <div className="w-full h-full bg-slate-200"></div>
-        <div className="w-[50rem] h-full bg-slate-300 p-6">
+      <div className="flex w-full h-full z-1">
+        <div className="w-full h-full bg-black pt-[4rem] z-1">
+          
+          <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
+
+        </div>
+        <div className="w-[25rem] h-full bg-slate-300 p-6">
           <Card className="w-full h-full">
             
           </Card>
