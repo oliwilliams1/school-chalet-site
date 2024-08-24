@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
+import { Button } from '@nextui-org/button';
+import { DateRangePicker } from "@nextui-org/date-picker";
 
 const chalets = [
   {
@@ -88,13 +90,27 @@ export default function CustomCards() {
           <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
 
         </div>
-        <div className="w-[25rem] h-full bg-slate-300 p-6">
+        <div className="w-[25rem] h-full bg-slate-300 p-4">
           <Card className="w-full h-full">
-            
+            <CardHeader>
+              <div>
+                <h1 className="text-3xl font-bold">Pukeko</h1>
+                <h2 className="text-md font-semibold">Great option for families!</h2>
+              </div>
+            </CardHeader>
+            <CardBody>
+              <p className="text-md">Pukeko is a great option for families. It has a large living area with a fireplace, a kitchenette, and two bedrooms. It also has a balcony with a great view of the mountains.</p>
+            </CardBody>
+
+            <CardFooter>
+              <div className="w-full">
+                <DateRangePicker className="mb-2 w-full" label="Stay duration" description="Stay duration must be Friday-Sunday" variant="bordered" isRequired/>
+                <Button className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold">Register Now!</Button>
+              </div>
+            </CardFooter>
           </Card>
         </div>
       </div>
-
     </div>
   );
 }

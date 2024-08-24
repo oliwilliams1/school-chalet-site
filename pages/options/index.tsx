@@ -3,7 +3,6 @@ import Autoplay from 'embla-carousel-autoplay'
 
 import CustomCard from "@/layouts/customCard";
 import { Button } from "@nextui-org/button";
-import { DateRangePicker } from "@nextui-org/date-picker";
 
 import { Header } from "@/layouts/head";
 import Footer from "@/layouts/footer"
@@ -33,8 +32,6 @@ export default function StayWithUs() {
     <CustomCard />
 
     <JoinUs />
-
-    <DateRangePicker />
     <Footer />
   </div>)
 }

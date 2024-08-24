@@ -1,12 +1,21 @@
-import React from 'react'
-import { EmblaOptionsType } from 'embla-carousel'
-import { DotButton, useDotButton } from './EmblaCarouselDotButton'
+import React, { useCallback, useEffect, useRef } from 'react'
 import {
-  PrevButton,
+  EmblaCarouselType,
+  EmblaEventType,
+  EmblaOptionsType
+} from 'embla-carousel'
+import useEmblaCarousel from 'embla-carousel-react'
+import {
   NextButton,
+  PrevButton,
   usePrevNextButtons
 } from './EmblaCarouselArrowButtons'
-import useEmblaCarousel from 'embla-carousel-react'
+import { DotButton, useDotButton } from './EmblaCarouselDotButton'
+
+const TWEEN_FACTOR_BASE = 0.84
+
+const numberWithinRange = (number: number, min: number, max: number): number =>
+  Math.min(Math.max(number, min), max)
 
 type PropType = {
   slides: number[]
@@ -16,6 +25,7 @@ type PropType = {
 const EmblaCarousel: React.FC<PropType> = (props) => {
   const { slides, options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
+  const tweenFactor = useRef(0)
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi)
@@ -27,13 +37,75 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     onNextButtonClick
   } = usePrevNextButtons(emblaApi)
 
+  const setTweenFactor = useCallback((emblaApi: EmblaCarouselType) => {
+    tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length
+  }, [])
+
+  const tweenOpacity = useCallback(
+    (emblaApi: EmblaCarouselType, eventName?: EmblaEventType) => {
+      const engine = emblaApi.internalEngine()
+      const scrollProgress = emblaApi.scrollProgress()
+      const slidesInView = emblaApi.slidesInView()
+      const isScrollEvent = eventName === 'scroll'
+
+      emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
+        let diffToTarget = scrollSnap - scrollProgress
+        const slidesInSnap = engine.slideRegistry[snapIndex]
+
+        slidesInSnap.forEach((slideIndex) => {
+          if (isScrollEvent && !slidesInView.includes(slideIndex)) return
+
+          if (engine.options.loop) {
+            engine.slideLooper.loopPoints.forEach((loopItem) => {
+              const target = loopItem.target()
+
+              if (slideIndex === loopItem.index && target !== 0) {
+                const sign = Math.sign(target)
+
+                if (sign === -1) {
+                  diffToTarget = scrollSnap - (1 + scrollProgress)
+                }
+                if (sign === 1) {
+                  diffToTarget = scrollSnap + (1 - scrollProgress)
+                }
+              }
+            })
+          }
+
+          const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current)
+          const opacity = numberWithinRange(tweenValue, 0, 1).toString()
+          const scale = numberWithinRange(tweenValue, 0.95, 1).toString()
+          emblaApi.slideNodes()[slideIndex].style.opacity = opacity
+          emblaApi.slideNodes()[slideIndex].style.transform = `scale(${scale})`
+        })
+      })
+    },
+    []
+  )
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    setTweenFactor(emblaApi)
+    tweenOpacity(emblaApi)
+    emblaApi
+      .on('reInit', setTweenFactor)
+      .on('reInit', tweenOpacity)
+      .on('scroll', tweenOpacity)
+      .on('slideFocus', tweenOpacity)
+  }, [emblaApi, tweenOpacity])
+
   return (
-    <section className="embla">
+    <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((index) => (
-            <div className="embla__slide" key={index}>
-              <div className="embla__slide__number">{index + 1}</div>
+            <div className="embla__slide w-full h-full" key={index}>
+              <img
+                className="w-full h-full object-cover rounded-[1rem]"
+                src={`https://picsum.photos/600/350?v=${index}`}
+                alt="Your alt text"
+              />
             </div>
           ))}
         </div>
@@ -57,7 +129,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 
