@@ -6,6 +6,8 @@ import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 import { Button } from '@nextui-org/button';
 import { DateRangePicker } from "@nextui-org/date-picker";
 
+import { NextArrowIcon, PreviousArrowIcon } from '@/components/icons';
+
 const chalets = [
   {
     name: "Kākāpo",
@@ -24,6 +26,18 @@ const chalets = [
   },  
 ];
 
+const slides = [
+  {
+    src: "/images/maunga-hero.jpeg",
+  },
+  {
+    src: "/plan.jpg",
+  },
+  {
+    src: "/images/maunga-hero.jpeg",
+  },
+]
+
 export default function CustomCards() {
   const [expandedCardIndex, setExpandedCardIndex] = useState(0);
 
@@ -40,6 +54,15 @@ export default function CustomCards() {
     }
   }, [expandedCardIndex]);
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrevious = () => {
+    setCurrentIndex(currentIndex === 0 ? slides.length - 1 : currentIndex - 1);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((currentIndex + 1) % slides.length);
+  };
 
   return (
     <div className="flex w-full h-[90vh] bg-slate-100">
@@ -79,15 +102,34 @@ export default function CustomCards() {
         </div>
       </div>
 
-      <div className="flex w-full h-full z-1">
-        <div className="w-full h-full z-1">
-          <div className="flex w-full h-[calc(100%-4rem)] bg-slate-300 overflow-hidden">
-            <div className="w-full h-full">Slide one</div>
+    <div className="flex w-full h-full z-1">
+
+      <div className="w-full h-full z-1 bg-[rgb(8,4,4)]">
+        <div className="w-full h-[calc(100%-4rem)] overflow-hidden">
+          <div
+            className={`flex w-[${slides.length * 100}%] h-full transition-transform duration-500 ease-in-out`}
+            style={{ width: `${slides.length * 100}%`, transform: `translateX(-${(currentIndex * 100) / slides.length}%)` }}
+          >
+            {slides.map((slide, index) => (
+              <div key={index} className="w-[100%] h-[97%] p-16 pb-2">
+                <div
+                  className="w-full h-full bg-cover bg-center rounded-[1.5rem] transition-transform duration-500 ease-in-out"
+                  style={{ backgroundImage: `url('${slide.src}')` }}
+                />
+              </div>
+            ))}
           </div>
-        <div className="w-full h-[4rem]">
-          <Button className="w-12 h-12 rounded-lg m-2">{'<'}</Button>
-          <Button className="w-12 h-12 rounded-lg m-2">{'>'}</Button>
         </div>
+
+        <div className="w-full h-[4rem] p-3 pl-16 pt-0">
+          <Button className="p-2.5 bg-[rgb(8,4,4)] border-slate-700 border-2 rounded-full" isIconOnly onClick={handlePrevious}>
+            <PreviousArrowIcon />
+          </Button>
+          <Button className="p-2.5 bg-[rgb(8,4,4)] border-slate-700 border-2 rounded-full ml-4" isIconOnly onClick={handleNext}>
+            <NextArrowIcon />
+          </Button>
+        </div>
+        
       </div>
 
       <div className="w-[25rem] h-full bg-slate-300 p-4">
