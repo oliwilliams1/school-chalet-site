@@ -1,5 +1,6 @@
 import React from 'react';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import "pure-react-carousel/dist/react-carousel.es.css";
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -82,18 +83,45 @@ export default function CustomCards() {
       </div>
 
       <div className="flex w-full h-full z-1">
-        <div className="w-full h-full bg-black pt-[4rem] z-1">
+        <div className="w-full h-full bg-black z-1 p-4">
           {/* https://github.com/express-labs/pure-react-carousel */}
           <CarouselProvider
+            className="w-full h-[90%]"
             naturalSlideWidth={100}
-            naturalSlideHeight={125}
-            totalSlides={3}
+            naturalSlideHeight={100}
+            totalSlides={5}
+            visibleSlides={1.5}
+            step={1}
+            infinite
           >
-            <Slider>
-              <Slide index={0}>I am the first Slide.</Slide>
-              <Slide index={1}>I am the second Slide.</Slide>
-              <Slide index={2}>I am the third Slide.</Slide>
+            <Slider className="h-full">
+              <Slide index={0}>
+                <div className="h-full w-full bg-red-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+                  I am the first Slide.
+                </div>
+              </Slide>
+              <Slide index={1}>
+                <div className="h-full w-full bg-green-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+                  I am the second Slide.
+                </div>
+              </Slide>
+              <Slide index={2}>
+                <div className="h-full w-full bg-yellow-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+                  I am the third Slide.
+                </div>
+              </Slide>
+              <Slide index={3}>
+                <div className="h-full w-full bg-blue-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+                  I am the fourth Slide.
+                </div>
+              </Slide>
+              <Slide index={4}>
+                <div className="h-full w-full bg-purple-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+                  I am the fifth Slide.
+                </div>
+              </Slide>
             </Slider>
+
           </CarouselProvider>
         </div>
         <div className="w-[25rem] h-full bg-slate-300 p-4">
