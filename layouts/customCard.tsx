@@ -1,5 +1,5 @@
-import EmblaCarousel from '@/pages/EmblaCarousel';
-import { EmblaOptionsType } from 'embla-carousel'
+import React from 'react';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -42,9 +42,6 @@ export default function CustomCards() {
     }
   }, [expandedCardIndex]);
 
-  const OPTIONS: EmblaOptionsType = { loop: true }
-  const SLIDE_COUNT = 5
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
   return (
     <div className="flex w-full h-[90vh] bg-slate-100">
@@ -86,9 +83,18 @@ export default function CustomCards() {
 
       <div className="flex w-full h-full z-1">
         <div className="w-full h-full bg-black pt-[4rem] z-1">
-          
-          <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
-
+          {/* https://github.com/express-labs/pure-react-carousel */}
+          <CarouselProvider
+            naturalSlideWidth={100}
+            naturalSlideHeight={125}
+            totalSlides={3}
+          >
+            <Slider>
+              <Slide index={0}>I am the first Slide.</Slide>
+              <Slide index={1}>I am the second Slide.</Slide>
+              <Slide index={2}>I am the third Slide.</Slide>
+            </Slider>
+          </CarouselProvider>
         </div>
         <div className="w-[25rem] h-full bg-slate-300 p-4">
           <Card className="w-full h-full">
