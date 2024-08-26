@@ -10,7 +10,7 @@ import InteractiveImage from '@/layouts/interactiveImage';
 import JoinUs from '@/layouts/joinUs';
 
 export default function Index() {
-  const [emblaRef] = useEmblaCarousel({loop: false}, [Autoplay()])
+  const [emblaRef] = useEmblaCarousel({loop: false, duration: 50}, [Autoplay({delay: 7500})])
 
   return (
     <div>
@@ -24,9 +24,11 @@ export default function Index() {
 
       <div className="w-full h-screen overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          <div className="flex-[0_0_100%] min-w-0 h-screen bg-slate-200">Slide 1</div>
-          <div className="flex-[0_0_100%] min-w-0 h-screen bg-slate-300">Slide 2</div>  
-          <div className="flex-[0_0_100%] min-w-0 h-screen bg-slate-400">Slide 3</div>
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/bungalow-1869770.jpg')`}}></div>
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/mountains-6005824.jpg')`}}></div>
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/ski-1075456.jpg')`}}></div>
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/skiing-4835024.jpg')`}}></div>
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/snowboarding-4878696.jpg')`}}></div>
         </div>
       </div>
 
@@ -35,10 +37,10 @@ export default function Index() {
       <InteractiveImage />
 
       <div className="w-full h-[600px] bg-slate-200 justify-center items-center pt-10">
-        <h2 className="text-4xl text-center mb-10">Logo</h2>
-        <h1 className="text-6xl font-bold text-center">Title</h1>
+        <div className="w-24 h-24 rounded-full ml-auto mr-auto mb-8 bg-cover bg-center" style={{backgroundImage: `url('/logo/transparant.png')`}}></div>
+        <h1 className="text-6xl font-bold text-center">Welcome to Our Slopes</h1>
         <Divider className="my-4 w-[30vw] ml-auto mr-auto" /> 
-        <p className="ml-auto mr-auto w-[40vw] text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, ut itaque recusandae consequatur deserunt amet molestias asperiores soluta consectetur ipsam doloremque laudantium sit explicabo quia dolorem cum expedita obcaecati sequi!</p>
+        <p className="ml-auto mr-auto w-[40vw] text-center">Discover the ultimate winter adventure at our premier ski and snowboard field. Experience world-class slopes, stunning mountain views, and top-notch facilities for an unforgettable getaway.</p>
 
         <div className="flex w-full h-72 p-14">
           <div className="w-1/5 h-full ml-8 bg-slate-300">Card 1</div>
@@ -46,12 +48,12 @@ export default function Index() {
           <div className="w-1/5 h-full ml-8 bg-slate-300">Card 3</div>
           <div className="w-1/5 h-full ml-8 bg-slate-300">Card 4</div>
           <div className="w-1/5 h-full ml-8 bg-slate-300">Card 5</div>
-      </div>
+        </div>
 
-      <div className="w-full h-96 bg-slate-900 p-24">
-        <h2 className="text-white text-4xl text-center mb-8">Small quote/info</h2>
-        <p className="text-white text-lg text-center max-w-[60%] ml-auto mr-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eius maiores quae amet quis officia repellat ipsam, earum hic minus reprehenderit non veniam, voluptas, quidem expedita quas nam quod aliquam?</p>
-      </div>
+        <div className="w-full h-[21rem] bg-slate-900 p-24">
+          <h2 className="text-white text-4xl text-center mb-8">Experience the Thrill of the Slopes</h2>
+          <p className="text-white text-lg text-center max-w-[60%] ml-auto mr-auto">At our premier ski and snowboard field, you'll find world-class terrain, stunning mountain vistas, and a vibrant community of winter sports enthusiasts. Join us for an unforgettable adventure on the slopes.</p>
+        </div>
 
       <JoinUs />
 
