@@ -31,7 +31,11 @@ export default function StayWithUs() {
     
     <CustomCard />
 
-    <JoinUs />
+    <div className="flex w-full h-full">
+      <JoinUs />
+      <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: `url('/resources/home/cropped-bungalow.jpg')`}}></div>
+    </div>
+    
     <Footer />
   </div>)
 }

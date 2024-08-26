@@ -15,6 +15,7 @@ export const Header = () => {
             height={36}
             className="rounded-full"
           />
+          <h2 className="mt-1 ml-2 text-lg font-bold">Maunga Ski Field</h2>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>

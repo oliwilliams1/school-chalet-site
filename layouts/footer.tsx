@@ -5,13 +5,16 @@ export default function Footer() {
     <div className="w-full bg-slate-900 pt-16 pb-10">
       <div className="flex max-w-[1200px] w-full mx-auto">
         <div className="w-1/2 text-white">
-          <h1 className="text-6xl font-bold pb-4">LOGO</h1>
+          <div className="flex">
+            <div className="w-24 h-24 rounded-xl mb-4 bg-cover bg-center" style={{backgroundImage: `url('/logo/transparant.png')`}}></div>
+            <h2 className="mt-auto mb-auto ml-4 text-2xl font-bold">Maunga Ski Field</h2>
+          </div>
           <div className="text-md">
             <p>&copy; Copyright 2024 Maunga Ski Field.</p>
             <p>All Rights Reserved.</p>
           </div>
         </div>
-        <div className="w-1/2 text-white text-right">
+        <div className="w-1/2 text-white text-right pt-8">
           <div className="text-md space-y-4">
           <p>
             <a href=".">Home</a> | 

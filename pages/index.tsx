@@ -24,11 +24,10 @@ export default function Index() {
 
       <div className="w-full h-screen overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/bungalow-1869770.jpg')`}}></div>
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/snowboarding-4878696.jpg')`}}></div>
           <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/mountains-6005824.jpg')`}}></div>
           <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/ski-1075456.jpg')`}}></div>
           <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/skiing-4835024.jpg')`}}></div>
-          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/snowboarding-4878696.jpg')`}}></div>
         </div>
       </div>
 
@@ -55,7 +54,10 @@ export default function Index() {
           <p className="text-white text-lg text-center max-w-[60%] ml-auto mr-auto">At our premier ski and snowboard field, you'll find world-class terrain, stunning mountain vistas, and a vibrant community of winter sports enthusiasts. Join us for an unforgettable adventure on the slopes.</p>
         </div>
 
-      <JoinUs />
+      <div className="flex w-full h-full">
+        <JoinUs />
+        <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: `url('/resources/home/cropped-bungalow.jpg')`}}></div>
+      </div>
 
       <div className="w-full h-96 bg-slate-300">
         <div className="flex max-w-[80rem] w-full h-full bg-slate-300 ml-auto mr-auto">
