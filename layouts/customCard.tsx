@@ -40,6 +40,7 @@ const slides = [
 
 export default function CustomCards() {
   const [expandedCardIndex, setExpandedCardIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleCardClick = (index: number) => {
     if (expandedCardIndex !== index) {
@@ -53,8 +54,6 @@ export default function CustomCards() {
       setExpandedCardIndex(0);
     }
   }, [expandedCardIndex]);
-
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevious = () => {
     setCurrentIndex(currentIndex === 0 ? slides.length - 1 : currentIndex - 1);
@@ -136,7 +135,11 @@ export default function CustomCards() {
               <div className="flex space-x-2">
                 {slides.map((slide, index) => (
                   <div
-                    className="w-[20px] h-[20px] border-2 rounded-full text-center text-white cursor-pointer transition-all duration-300 hover:bg-slate-600"
+                    className={`w-[20px] h-[20px] rounded-full border-2 text-center text-white cursor-pointer transition-all duration-300 ${
+                      index === currentIndex
+                        ? 'hover:bg-slate-800 border-slate-100'
+                        : 'hover:bg-slate-800 border-slate-500'
+                    }`}
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                   ></div>
