@@ -48,11 +48,12 @@ export default function Index() {
           <div className="w-1/5 h-full ml-8 bg-slate-300">Card 4</div>
           <div className="w-1/5 h-full ml-8 bg-slate-300">Card 5</div>
         </div>
+      </div>
 
-        <div className="w-full h-[21rem] bg-slate-900 p-24">
-          <h2 className="text-white text-4xl text-center mb-8">Experience the Thrill of the Slopes</h2>
-          <p className="text-white text-lg text-center max-w-[60%] ml-auto mr-auto">At our premier ski and snowboard field, you'll find world-class terrain, stunning mountain vistas, and a vibrant community of winter sports enthusiasts. Join us for an unforgettable adventure on the slopes.</p>
-        </div>
+      <div className="w-full h-[21rem] bg-slate-900 p-24">
+        <h2 className="text-white text-4xl text-center mb-8">Experience the Thrill of the Slopes</h2>
+        <p className="text-white text-lg text-center max-w-[60%] ml-auto mr-auto">At our premier ski and snowboard field, you'll find world-class terrain, stunning mountain vistas, and a vibrant community of winter sports enthusiasts. Join us for an unforgettable adventure on the slopes.</p>
+      </div>
 
       <div className="flex w-full h-full">
         <JoinUs />
@@ -68,6 +69,5 @@ export default function Index() {
       </div>
 
       <Footer />
-    </div>
   </div>)
 }
