@@ -121,13 +121,30 @@ export default function CustomCards() {
           </div>
         </div>
 
-        <div className="w-full h-[4rem] p-3 pl-16 pt-0">
-          <Button className="p-2.5 bg-[rgb(8,4,4)] border-slate-700 border-2 rounded-full" isIconOnly onClick={handlePrevious}>
-            <PreviousArrowIcon />
-          </Button>
-          <Button className="p-2.5 bg-[rgb(8,4,4)] border-slate-700 border-2 rounded-full ml-4" isIconOnly onClick={handleNext}>
-            <NextArrowIcon />
-          </Button>
+        <div className="flex w-full h-[4rem]">
+          <div className="w-1/2 h-full p-3 pl-20 pt-0">
+            <Button className="p-2.5 bg-[rgb(8,4,4)] border-2 rounded-full" isIconOnly onClick={handlePrevious}>
+              <PreviousArrowIcon />
+            </Button>
+            <Button className="p-2.5 bg-[rgb(8,4,4)] border-2 rounded-full ml-4" isIconOnly onClick={handleNext}>
+              <NextArrowIcon />
+            </Button>
+          </div>
+
+          <div className="w-full h-full pb-3 pr-20">
+            <div className="flex justify-end items-center w-full h-[40px]">
+              <div className="flex space-x-2">
+                {slides.map((slide, index) => (
+                  <div
+                    className="w-[20px] h-[20px] border-2 rounded-full text-center text-white cursor-pointer transition-all duration-300 hover:bg-slate-600"
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                  ></div>
+                ))}
+              </div>
+            </div>
+          </div>
+
         </div>
         
       </div>
