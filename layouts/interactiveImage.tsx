@@ -1,15 +1,12 @@
-import { randomInt } from "crypto";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 interface PointProps {
   className?: string;
   onClick?: () => void;
-  title: string;
-  content: string;
 }
 
-function Point({ className = "", onClick, title, content }: PointProps) {
+function Point({ className = "", onClick }: PointProps) {
   return (
     <motion.div
       className={`absolute w-4 h-4 p-0.5 bg-orange-300 rounded-full -translate-x-1/2 -translate-y-1/2 ${className} cursor-pointer`}
@@ -70,31 +67,22 @@ export default function InteractiveImage() {
     >
       <h1 className="text-6xl font-bold text-center">THE MOUNTAIN</h1>
 
-      {pointData.map((point, index) => (
-        <Point
-          key={index}
-          className={`top-[${
-            index === 0
-              ? "19rem"
-              : index === 1
-              ? "30rem"
-              : index === 2
-              ? "25rem"
-              : "39rem"
-          }] left-[${
-            index === 0
-              ? "51%"
-              : index === 1
-              ? "34%"
-              : index === 2
-              ? "62%"
-              : "78%"
-          }]`}
-          onClick={() => handlePointClick(index)}
-          title={point.title}
-          content={point.content}
-        />
-      ))}
+      <Point
+        className="top-[19rem] left-[51%]"
+        onClick={() => handlePointClick(0)}
+      />
+      <Point
+        className="top-[30rem] left-[34%]"
+        onClick={() => handlePointClick(1)}
+      />
+      <Point
+        className="top-[25rem] left-[62%]"
+        onClick={() => handlePointClick(2)}
+      />
+      <Point
+        className="top-[39rem] left-[78%]"
+        onClick={() => handlePointClick(3)}
+      />
 
       <AnimatePresence>
         {activePoint !== null && (
