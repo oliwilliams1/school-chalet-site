@@ -8,7 +8,7 @@ export default function JoinUs() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="w-3/5 min-h-[450px] bg-slate-700 p-24">
+    <div className="w-3/5 min-h-[300px] bg-slate-700 p-24">
       <div className="w-full h-full flex flex-col justify-center items-center">
         <h2 className="text-white text-4xl mb-8">Join the Club</h2>
         <p className="text-white text-lg text-center max-w-[80%] mb-12">
@@ -20,7 +20,7 @@ export default function JoinUs() {
           <Button
             className="bg-white text-slate-700 hover:bg-slate-200"
             size="lg"
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={() => setIsExpanded(true)}
           >
             Learn More
           </Button>

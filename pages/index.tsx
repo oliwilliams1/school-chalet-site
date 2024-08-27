@@ -57,7 +57,7 @@ export default function Index() {
 
       <div className="flex w-full h-full">
         <JoinUs />
-        <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: `url('/resources/home/cropped-bungalow.jpg')`}}></div>
+        <div className="w-full h-inherit bg-cover bg-center" style={{backgroundImage: `url('/resources/home/cropped-bungalow.jpg')`}}></div>
       </div>
 
       <div className="w-full h-96 bg-slate-300">
