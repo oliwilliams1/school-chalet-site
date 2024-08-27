@@ -35,24 +35,24 @@ export const Header: React.FC = () => {
           height={36}
           className="rounded-full"
         />
-        <h2 className="mt-1 ml-2 text-lg font-bold">Maunga Ski Field</h2>
+        <h2 className={`mt-1 ml-2 text-lg font-bold ${isScrolled ? `text-black` : `text-white`} transition-all duration-300`}>Maunga Ski Field</h2>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href=".">
+          <Link color="foreground" className={`${isScrolled ? `text-black` : `text-white`} transition-all duration-300`} href=".">
             Home
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/options">
+          <Link color="foreground" className={`${isScrolled ? `text-black` : `text-white`} transition-all duration-300`} href="/options">
             Our Chalets
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="primary" href="/register" variant="flat">
-            Join The Club
+          <Button as={Link} className={`${isScrolled ? `bg-blue-300` : `bg-slate-600`} transition-all duration-300`} href="/register" variant="flat">
+            <p className={`${isScrolled ? `text-black` : `text-white`} transition-all duration-300`}>Join The Club</p>
           </Button>
         </NavbarItem>
       </NavbarContent>

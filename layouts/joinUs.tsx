@@ -14,7 +14,7 @@ export default function JoinUs() {
         <p className="text-white text-lg text-center max-w-[80%] mb-12">
           Become a member of our exclusive ski club and enjoy a range of
           benefits, including discounted lift tickets, early access to
-          events, and access to our private ski lounge.
+          events, and access to our private chalets we take pride in.
         </p>
         <div className="flex space-x-6">
           <Button
