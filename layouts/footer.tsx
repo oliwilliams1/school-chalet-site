@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
           <div className="h-[1px] bg-[rgb(180,170,180)] max-w-[9.5rem] ml-auto my-4"></div>
           <div className="flex justify-end space-x-2">
-            <GithubIcon className="w-6 h-6" />
+            <a href="https://github.com" target="_blank"><GithubIcon className="w-6 h-6" /></a>
             <TwitterIcon className="w-6 h-6" />
             <YoutubeIcon className="w-6 h-6" />
             <FacebookIcon className="w-6 h-6" />

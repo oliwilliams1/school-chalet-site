@@ -28,13 +28,16 @@ const chalets = [
 
 const slides = [
   {
-    src: "/images/maunga-hero.jpeg",
+    src: "/resources/home/snowboarding-4878696.jpg",
   },
   {
-    src: "/plan.jpg",
+    src: "/resources/home/mountains-6005824.jpg",
   },
   {
-    src: "/images/maunga-hero.jpeg",
+    src: "/resources/home/ski-1075456.jpg",
+  },
+  {
+    src: "/resources/home/skiing-4835024.jpg",
   },
 ]
 
