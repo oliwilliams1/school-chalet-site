@@ -99,15 +99,15 @@ export default function CustomCards() {
 
       <div className="flex w-full h-full z-1">
         <div className="w-full h-full z-1 bg-[rgb(8,4,4)]">
-          <div className="w-full h-[calc(100%-4rem)] overflow-hidden">
+          <div className="w-full h-full overflow-hidden">
             <div
               className={`flex w-[${slides.length * 100}%] h-full transition-transform duration-500 ease-in-out`}
               style={{ width: `${slides.length * 100}%`, transform: `translateX(-${(currentIndex * 100) / slides.length}%)` }}
             >
               {slides.map((slide, index) => (
-                <div key={index} className="w-full h-full p-16 pb-6">
+                <div key={index} className="w-full h-full">
                   <div
-                    className="w-full h-full bg-cover bg-center rounded-[1.5rem] transition-transform duration-500 ease-in-out"
+                    className="w-full h-full bg-cover bg-center transition-transform duration-500 ease-in-out"
                     style={{ backgroundImage: `url('${slide.src}')` }}
                   />
                 </div>
@@ -115,7 +115,7 @@ export default function CustomCards() {
             </div>
           </div>
 
-          <div className="flex w-full h-[4rem]">
+          <div className="relative flex w-full h-[4rem] bg-black opacity-70 mt-[-4rem] pt-3 z-10">
             <div className="w-1/2 h-full p-3 pl-20 pt-0">
               <Button className="p-2.5 bg-[rgb(8,4,4)] border-2 rounded-full" isIconOnly onClick={handlePrevious}>
                 <PreviousArrowIcon />
