@@ -6,6 +6,7 @@ import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 
 import { DownArrowIcon } from "@/components/icons";
 import { Header } from "@/layouts/head"
+import { chalets } from "@/layouts/customCard";
 import Footer from "@/layouts/footer"
 import InteractiveImage from '@/layouts/interactiveImage';
 import JoinUs from '@/layouts/joinUs';
@@ -24,7 +25,7 @@ export default function Index() {
     <div>
       <Header />
 
-      <div className="absolute w-full h-screen z-10 bg-black bg-opacity-60">
+      <div className="absolute w-full h-screen z-10 bg-black bg-opacity-50">
         <h1 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl font-bold text-white">MAUNGA PEAK</h1>
         <h2 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 mt-12 text-2xl text-white">A New Zealand Favourite</h2>
         <DownArrowIcon className="w-6 h-6 absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2" onClick={scrollDown} cursor={"pointer"}/>
@@ -118,11 +119,34 @@ export default function Index() {
         <div className="w-full h-inherit bg-cover bg-center" style={{backgroundImage: `url('/resources/home/cropped-bungalow.jpg')`}}></div>
       </div>
 
-      <div className="w-full h-96 bg-slate-300">
-        <div className="flex max-w-[80rem] w-full h-full bg-slate-300 ml-auto mr-auto">
-          <div className="w-1/3 h-full">Chalet one card</div>
-          <div className="w-1/3 h-full">Chalet two card</div>
-          <div className="w-1/3 h-full">Chalet three card</div>
+      <div className="w-full bg-slate-500 pt-5 pb-16">
+        <h1 className="text-white text-4xl text-center mb-2">Looking for a Place to Stay?</h1>
+        <h2 className="text-white text-xl text-center mb-8">Discover our chalets, perfect for every type of group.</h2>
+        <div className="flex min-w-[40rem] w-[65%] h-full mx-auto">
+          {chalets.map((chalet, index) => (
+            <a 
+              key={index} 
+              href="/options" 
+              className="w-full h-full mx-4"
+            >
+              <Card 
+                className="w-full h-full transition-transform duration-300 transform hover:translate-y-[-1rem] shadow-lg" 
+                isBlurred 
+                isFooterBlurred
+              >
+                <CardHeader className="pb-0 pt-2 px-4 flex flex-col items-start">
+                  <h2 className="font-bold text-xl text-gray-800">{chalet.name}</h2>
+                  <small className="text-gray-500">{chalet.shortDesc}</small>
+                </CardHeader>
+                <CardBody>
+                  <div 
+                    className="w-full h-48 bg-cover bg-center rounded-lg shadow-md" 
+                    style={{ backgroundImage: `url('${chalet.image}')` }} 
+                  />
+                </CardBody>
+              </Card>
+            </a>
+          ))}
         </div>
       </div>
 

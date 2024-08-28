@@ -5,7 +5,7 @@ import { Button } from '@nextui-org/button';
 import { DateRangePicker } from "@nextui-org/date-picker";
 import { NextArrowIcon, PreviousArrowIcon } from '@/components/icons';
 
-const chalets = [
+export const chalets = [
   {
     name: "Kākāpo",
     shortDesc: "Our largest option, great for large groups",
@@ -22,8 +22,9 @@ const chalets = [
     largeDesc: "Pūkeko is designed for groups and families, comfortably hosting up to 6 adults and 15 children. Its layout provides privacy, with limits on adult/child numbers to ensure a pleasant atmosphere. Enjoy your own chalet experience with all the necessary features for a comfortable stay.",
     image: "/resources/chalets/pukeko/card front.jpg",
     images: [
-      { src: "/resources/home/snowboarding-4878696.jpg" },
-      { src: "/resources/home/mountains-6005824.jpg" },
+      { src: "/resources/chalets/pukeko/card front.jpg" },
+      { src: "/resources/chalets/pukeko/chalet_view.jpg" },
+      { src: "/resources/chalets/pukeko/adult_bedroom.jpg" },
     ]
   },
   {
@@ -32,8 +33,9 @@ const chalets = [
     largeDesc: "Kererū is a great option for families, accommodating up to 2 adults and 4 children. It features two cozy bedrooms and a separate living area, making it perfect for families with 2-4 children. Enjoy a peaceful retreat in this charming chalet designed for family comfort.",
     image: "/resources/chalets/kereru/card front.jpg",
     images: [
-      { src: "/resources/home/mountains-6005824.jpg" },
-      { src: "/resources/home/ski-1075456.jpg" },
+      { src: "/resources/chalets/kereru/card front.jpg" },
+      { src: "/resources/chalets/kereru/cabin_exterior.jpg" },
+      { src: "/resources/chalets/kereru/kids_bedroom.jpg" },
     ]
   },  
 ];
