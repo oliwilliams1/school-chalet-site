@@ -115,7 +115,7 @@ export default function CustomCards() {
             </div>
           </div>
 
-          <div className="relative flex w-full h-[4rem] bg-black opacity-70 mt-[-4rem] pt-3 z-10">
+          <div className="relative flex w-full h-[4rem] bg-black opacity-70 mt-[-4rem] pt-3 z-4">
             <div className="w-1/2 h-full p-3 pl-20 pt-0">
               <Button className="p-2.5 bg-[rgb(8,4,4)] border-2 rounded-full" isIconOnly onClick={handlePrevious}>
                 <PreviousArrowIcon />
@@ -145,7 +145,7 @@ export default function CustomCards() {
           </div>
         </div>
 
-        <div className="w-[25rem] h-full bg-slate-300 p-4">
+        <div className="w-[25rem] h-full bg-slate-300 p-4 z-10">
           <Card className="w-full h-full">
             <CardHeader>
               <div>

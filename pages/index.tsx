@@ -107,7 +107,7 @@ export default function Index() {
         </div>
       </div>
 
-      <div className="w-full bg-slate-900 p-24">
+      <div className="w-full bg-gradient-to-br from-teal-700 to-sky-700 p-24">
         <h2 className="text-white text-4xl text-center mb-8">Discover the Wonders of Maunga Ski Resort</h2>
         <p className="text-white text-lg text-center max-w-[60%] ml-auto mr-auto">
           Experience the thrill of skiing and snowboarding on our world-class slopes, surrounded by the breathtaking beauty of the Maunga mountain range. With over 50 runs catering to all skill levels, there{"'"}s something for everyone to enjoy.

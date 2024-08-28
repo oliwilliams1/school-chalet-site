@@ -64,24 +64,24 @@ export default function InteractiveImage() {
     <div
       id="mountain-scroll-to"
       className="w-full h-[900px] z-10 pt-20 relative bg-cover bg-center"
-      style={{ backgroundImage: `url('/resources/home/maunga-hero.jpeg')` }}
+      style={{ backgroundImage: `url('/resources/home/mountain-2.jpg')` }}
     >
-      <h1 className="text-6xl font-bold text-center">THE MOUNTAIN</h1>
+      <h1 className="text-6xl font-bold text-center text-white">THE MOUNTAINS</h1>
 
       <Point
-        className="top-[19rem] left-[51%]"
+        className="top-[21rem] left-[43%]"
         onClick={() => handlePointClick(0)}
       />
       <Point
-        className="top-[30rem] left-[34%]"
+        className="top-[27rem] left-[25%]"
         onClick={() => handlePointClick(1)}
       />
       <Point
-        className="top-[25rem] left-[62%]"
+        className="top-[33rem] left-[82%]"
         onClick={() => handlePointClick(2)}
       />
       <Point
-        className="top-[39rem] left-[78%]"
+        className="top-[25rem] left-[62%]"
         onClick={() => handlePointClick(3)}
       />
 
@@ -99,21 +99,21 @@ export default function InteractiveImage() {
             style={{
               top: `${
                 pointData[activePoint].title === pointData[0].title
-                  ? "19rem"
+                  ? "21rem"
                   : pointData[activePoint].title === pointData[1].title
-                  ? "30rem"
+                  ? "27rem"
                   : pointData[activePoint].title === pointData[2].title
-                  ? "25rem"
-                  : "39rem"
+                  ? "33rem"
+                  : "25rem"
               }`,
               left: `${
                 pointData[activePoint].title === pointData[0].title
-                  ? "51%"
+                  ? "43%"
                   : pointData[activePoint].title === pointData[1].title
-                  ? "34%"
+                  ? "25%"
                   : pointData[activePoint].title === pointData[2].title
-                  ? "62%"
-                  : "78%"
+                  ? "82%"
+                  : "62%"
               }`,
               transform: "translate(-50%, -100%)",
             }}
