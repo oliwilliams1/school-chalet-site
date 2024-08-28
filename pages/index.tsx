@@ -127,10 +127,10 @@ export default function Index() {
             <a 
               key={index} 
               href="/options" 
-              className="w-full h-full mx-4"
+              className="w-full h-full mx-4 transition-all duration-300 transform hover:translate-y-[-1rem]"
             >
               <Card 
-                className="w-full h-full transition-transform duration-300 transform hover:translate-y-[-1rem] shadow-lg" 
+                className="w-full h-full shadow-lg" 
                 isBlurred 
                 isFooterBlurred
               >
