@@ -60,7 +60,7 @@ export default function CustomCards() {
   };
 
   return (
-    <div className="flex w-full h-[90vh] bg-slate-100">
+    <div className="flex w-full h-[90vh] bg-slate-100" id="carasoul-scroll-to">
       <div className="w-[25rem] h-full bg-slate-100 z-10">
         <div className="w-full h-full">
           {chalets.map((chalet, index) => (

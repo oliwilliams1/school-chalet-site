@@ -62,6 +62,7 @@ export default function InteractiveImage() {
 
   return (
     <div
+      id="mountain-scroll-to"
       className="w-full h-[900px] z-10 pt-20 relative bg-cover bg-center"
       style={{ backgroundImage: `url('/resources/home/maunga-hero.jpeg')` }}
     >

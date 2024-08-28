@@ -13,6 +13,13 @@ import JoinUs from '@/layouts/joinUs';
 export default function Index() {
   const [emblaRef] = useEmblaCarousel({loop: false, duration: 50}, [Autoplay({delay: 7500})])
 
+  const scrollDown = () => {
+    const targetSection = document.getElementById("mountain-scroll-to");
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  
   return (
     <div>
       <Header />
@@ -20,7 +27,7 @@ export default function Index() {
       <div className="absolute w-full h-screen z-10 bg-black bg-opacity-60">
         <h1 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl font-bold text-white">MAUNGA PEAK</h1>
         <h2 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 mt-12 text-2xl text-white">A New Zealand Favourite</h2>
-        <DownArrowIcon className="w-6 h-6 absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2"/>
+        <DownArrowIcon className="w-6 h-6 absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2" onClick={scrollDown} cursor={"pointer"}/>
       </div>
 
       <div className="w-full h-screen overflow-hidden" ref={emblaRef}>
