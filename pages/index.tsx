@@ -119,7 +119,7 @@ export default function Index() {
         <div className="w-full h-inherit bg-cover bg-center" style={{backgroundImage: `url('/resources/home/cropped-bungalow.jpg')`}}></div>
       </div>
 
-      <div className="w-full bg-slate-500 pt-5 pb-16">
+      <div className="w-full bg-slate-500 pt-10 pb-16">
         <h1 className="text-white text-4xl text-center mb-2">Looking for a Place to Stay?</h1>
         <h2 className="text-white text-xl text-center mb-8">Discover our chalets, perfect for every type of group.</h2>
         <div className="flex min-w-[40rem] w-[65%] h-full mx-auto">

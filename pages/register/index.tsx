@@ -5,6 +5,7 @@ import { Button } from "@nextui-org/button";
 export default function SignUpPage() {
   return (<div>
     <Header />
+    <video src="/resources/register/ski lift video - trim.mp4" autoPlay muted loop className="w-full h-full"></video>
     <div className="flex min-h-[calc(100vh-65px)]">
       <div className="w-[calc(100vw-35rem)] bg-slate-100">
         <p>Video/carousel</p>
