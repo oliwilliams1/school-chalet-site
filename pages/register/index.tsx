@@ -3,6 +3,7 @@ import Footer from "@/layouts/footer";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { useRef, useState } from "react";
+import { motion } from 'framer-motion';
 
 export default function SignUpPage() {
   const fileInputRefAddress = useRef(null);
@@ -21,26 +22,31 @@ export default function SignUpPage() {
     addressFile: false,
     idFile: false,
   });
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
-  const handleUploadClick = (ref: any) => {
+  const notificationVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+  };
+
+  const handleUploadClick = (ref : any) => {
     if (ref.current) {
       ref.current.click();
     }
   };
 
-  const handleAddressChange = (e: any) => {
+  const handleAddressChange = (e : any) => {
     if (e.target.files && e.target.files.length > 0) {
       setAddressUploaded(true);
       setAddressFileName(e.target.files[0].name);
-      console.log(e.target.files[0]);
     }
   };
 
-  const handleIDChange = (e: any) => {
+  const handleIDChange = (e : any) => {
     if (e.target.files && e.target.files.length > 0) {
       setIdUploaded(true);
       setIdFileName(e.target.files[0].name);
-      console.log(e.target.files[0]);
     }
   };
 
@@ -64,7 +70,14 @@ export default function SignUpPage() {
     setInputErrors(errors);
 
     if (!errors.firstName && !errors.lastName && !errors.physicalAddress && !errors.addressFile && !errors.idFile) {
-      console.log("All fields are filled and files are uploaded.");
+      localStorage.setItem("user", JSON.stringify({ firstName, lastName, physicalAddress }));
+      setRegistrationSuccess(true);
+      
+      // Hide notification after 3 seconds
+      setTimeout(() => {
+          setRegistrationSuccess(false);
+          window.location.href = "/";
+      }, 3000);
     }
   };
 
@@ -82,6 +95,19 @@ export default function SignUpPage() {
         />
       </div>
       <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-xl">
+        {registrationSuccess && (
+          <motion.div
+            className="absolute bottom-4 ml-4 bg-green-300 rounded-lg shadow-lg p-4"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={notificationVariants}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="text-2xl font-semibold text-black">Welcome Aboard!</h1>
+            <h2 className="text-md text-black">Registration successfull, redirecting shortly</h2>
+          </motion.div>
+        )}
         <div className="max-w-md w-full mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl p-8 shadow-lg bg-white dark:bg-black">
           <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">Create Your Account</h2>
           <p className="mb-6 text-neutral-600 dark:text-neutral-400">Please fill in the details below to become a member</p>
@@ -171,12 +197,9 @@ export default function SignUpPage() {
           <Button
             className="w-full mt-6 p-3 bg-green-200 rounded-lg hover:bg-green-300 transition duration-300"
             onClick={handleRegister}
-          >
-            Register
-          </Button>
+          >Register</Button>
         </div>
       </div>
-
       <Footer />
     </div>
   );
