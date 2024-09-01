@@ -3,9 +3,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/navbar";
+import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/avatar";
 
 export const Header: React.FC = () => {
+  const [user, setUser] = useState<string | null>(null);
+  const [userName, setUserName] = useState('');
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      setUser(parsedData);
+      setUserName(`${parsedData.firstName} ${parsedData.lastName}`);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,9 +63,23 @@ export const Header: React.FC = () => {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} className={`${isScrolled ? `bg-blue-300` : `bg-slate-600`} transition-all duration-300`} href="/register" variant="flat">
-            <p className={`${isScrolled ? `text-black` : `text-white`} transition-all duration-300`}>Join The Club</p>
-          </Button>
+          {user ? (
+            <div className="flex">
+              <Avatar className="w-8 h-8 my-auto cursor-pointer" showFallback />
+              <p className="my-auto text-white m-2">{userName}</p>
+            </div>
+          ) : (
+            <Button
+              as={Link}
+              className={`${isScrolled ? `bg-blue-300` : `bg-slate-600`} transition-all duration-300`}
+              href="/register"
+              variant="flat"
+            >
+              <p className={`${isScrolled ? `text-black` : `text-white`} transition-all duration-300`}>
+                Join The Club
+              </p>
+            </Button>
+          )}
         </NavbarItem>
       </NavbarContent>
     </Navbar>
