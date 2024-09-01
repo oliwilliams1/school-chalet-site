@@ -76,7 +76,7 @@ export default function SignUpPage() {
       // Hide notification after 3 seconds
       setTimeout(() => {
           setRegistrationSuccess(false);
-          window.location.href = "/";
+          window.history.back()
       }, 3000);
     }
   };

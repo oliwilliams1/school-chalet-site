@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@nextui-org/button";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/navbar";
 import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/avatar";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem } from "@nextui-org/dropdown";
 
 export const Header: React.FC = () => {
   const [user, setUser] = useState<string | null>(null);
@@ -33,6 +34,13 @@ export const Header: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    setUserName('');
+    window.location.reload(); // Refresh the browser
+  };
 
   return (
     <Navbar 
@@ -65,8 +73,17 @@ export const Header: React.FC = () => {
         <NavbarItem>
           {user ? (
             <div className="flex">
-              <Avatar className="w-8 h-8 my-auto cursor-pointer" showFallback />
-              <p className="my-auto text-white m-2">{userName}</p>
+              <Dropdown placement="bottom-start">
+                <DropdownTrigger>
+                <Avatar as="button" showFallback className="w-8 h-8 my-auto transition-transform" />
+                </DropdownTrigger>
+                <DropdownMenu aria-label="Profile Actions" variant="flat">
+                  <DropdownItem key="logout" color="danger" onClick={handleLogout}>
+                    Log Out
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+              <p className={`${isScrolled ? `text-black` : `text-white`} my-auto m-2`}>{userName}</p>
             </div>
           ) : (
             <Button

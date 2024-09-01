@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { motion } from 'framer-motion';
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 import { Button } from '@nextui-org/button';
@@ -41,9 +41,18 @@ export const chalets = [
 ];
 
 export default function CustomCards() {
+  const [user, setUser] = useState<string | null>(null);
   const [expandedCardIndex, setExpandedCardIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slides, setSlides] = useState(chalets[0].images);
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      const parsedData = JSON.parse(userData);
+      setUser(parsedData);
+    }
+  }, []);
 
   const handleCardClick = (index : number) => {
     if (expandedCardIndex !== index) {
@@ -68,7 +77,7 @@ export default function CustomCards() {
           {chalets.map((chalet, index) => (
             <motion.div
               key={index}
-              className="p-4"
+              className="p-4 transition-all duration-300 transform hover:translate-x-[1rem]"
               onClick={() => handleCardClick(index)}
               animate={{
                 marginLeft: index === expandedCardIndex ? 20 : 0,
@@ -80,7 +89,7 @@ export default function CustomCards() {
                 ease: 'easeInOut',
               }}
             >
-              <Card className="w-full h-full transition-transform duration-300 hover:translate-x-2 shadow-lg" isBlurred isFooterBlurred>
+              <Card className="w-full h-full shadow-lg" isBlurred isFooterBlurred>
                 <CardHeader className="pb-0 pt-2 px-4 flex flex-col items-start">
                   <h2 className="font-bold text-xl text-gray-800">{chalet.name}</h2>
                   <small className="text-gray-600">{chalet.shortDesc}</small>
@@ -165,7 +174,14 @@ export default function CustomCards() {
                   variant="bordered"
                   isRequired
                 />
-                <Button className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold">Register Now!</Button>
+                {user ? (
+                  <Button className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold">Book now!</Button>
+                ) : (
+                  <div>
+                    <p className="text-red-400 text-xs mb-1">* You must be a club member to book a chalet</p>
+                    <Button onClick={() => window.open('/register', '_self')} className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold">Register as a club member</Button>
+                  </div>
+                )}
               </div>
             </CardFooter>
           </Card>
