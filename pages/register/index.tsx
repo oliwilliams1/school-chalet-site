@@ -104,11 +104,11 @@ export default function SignUpPage() {
             variants={notificationVariants}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-2xl font-semibold text-black">Welcome Aboard!</h1>
-            <h2 className="text-md text-black">Registration successfull, redirecting shortly</h2>
+            <h1 className="text-2xl font-semibold text-white">Welcome Aboard!</h1>
+            <h2 className="text-md text-white">Registration successfull, redirecting shortly</h2>
           </motion.div>
         )}
-        <div className="max-w-md w-full mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl p-8 shadow-lg bg-white dark:bg-black">
+        <div className="max-w-[22rem] md:max-w-[28rem] w-full mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl p-8 shadow-lg bg-white dark:bg-black">
           <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">Create Your Account</h2>
           <p className="mb-6 text-neutral-600 dark:text-neutral-400">Please fill in the details below to become a member</p>
 
