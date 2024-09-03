@@ -1,9 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { motion } from 'framer-motion';
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
+import { Modal,  ModalContent,  ModalHeader,  ModalBody,  ModalFooter, useDisclosure } from "@nextui-org/modal";
 import { Button } from '@nextui-org/button';
 import { DateRangePicker } from "@nextui-org/date-picker";
 import { NextArrowIcon, PreviousArrowIcon } from '@/components/icons';
+interface User {
+  firstName: string;
+  lastName: string;
+}
+
+const getChaletMessage = (chalet : string) => {
+  switch (chalet) {
+    case "Kākāpo":
+      return {
+        description: "You have successfully purchased the Kākāpo chalet! Kākāpo is the largest of the chalets, accommodating up to 10 adults and 30 children. It features a spacious kitchen, dining, and living area, perfect for gatherings. Enjoy your stay with top-notch amenities for large groups."
+      };
+    case "Pūkeko":
+      return {
+        description: "You have successfully purchased the Pūkeko chalet! Pūkeko is designed for groups and families, comfortably hosting up to 6 adults and 15 children. Enjoy a pleasant atmosphere with its layout providing privacy and all the necessary features for a comfortable stay."
+      };
+    case "Kererū":
+      return {
+        description: "You have successfully purchased the Kererū chalet! This charming chalet is perfect for families, accommodating up to 2 adults and 4 children, featuring cozy bedrooms and a separate living area for a peaceful retreat."
+      };
+    default:
+      return { description: "You have successfully completed your purchase!" };
+  }
+};
 
 export const chalets = [
   {
@@ -41,10 +65,11 @@ export const chalets = [
 ];
 
 export default function CustomCards() {
-  const [user, setUser] = useState<string | null>(null);
+  const [user, setUser] = useState<User | any>(null);
   const [expandedCardIndex, setExpandedCardIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slides, setSlides] = useState(chalets[0].images);
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
   useEffect(() => {
     const userData = localStorage.getItem("user");
@@ -175,7 +200,7 @@ export default function CustomCards() {
                   isRequired
                 />
                 {user ? (
-                  <Button className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold">Book now!</Button>
+                  <Button onPress={onOpen} className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold">Book now!</Button>
                 ) : (
                   <div>
                     <p className="text-red-400 text-xs mb-1">* You must be a club member to book a chalet</p>
@@ -186,6 +211,27 @@ export default function CustomCards() {
             </CardFooter>
           </Card>
         </div>
+
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">{`Congratulations on your purchase, ${user?.firstName}!`}</ModalHeader>
+                <ModalBody>
+                  <p className="text-md">{getChaletMessage(chalets[currentIndex].name).description}</p>
+                  <p className="text-md">You will receive a confirmation email shortly with all the details about your purchase, including your chalet's amenities and check-in instructions. If you have any questions or need assistance, feel free to reach out to our support team. Thank you for choosing us for your stay; we look forward to welcoming you soon!</p>
+
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="danger" variant="light" onPress={onClose}>
+                    Close
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+        
       </div>
     </div>
   );
