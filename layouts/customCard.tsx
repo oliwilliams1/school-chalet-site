@@ -71,6 +71,12 @@ export default function CustomCards() {
   const [slides, setSlides] = useState(chalets[0].images);
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
 
+  const [hasDateRangeBeenChosen, setDateRange] = useState(false);
+
+  const handleDateChange = (range : any) => {
+    setDateRange(true);
+  };
+
   useEffect(() => {
     const userData = localStorage.getItem("user");
     if (userData) {
@@ -198,13 +204,18 @@ export default function CustomCards() {
                   description="Stay duration must be Friday-Sunday"
                   variant="bordered"
                   isRequired
+                  onChange={handleDateChange}
                 />
                 {user ? (
-                  <Button onPress={onOpen} className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold">Book now!</Button>
+                  <Button
+                    isDisabled={!hasDateRangeBeenChosen}
+                    onPress={onOpen} 
+                    className={`w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold ${hasDateRangeBeenChosen ? "" : "cursor-not-allowed"}`}
+                  >Book now!</Button>
                 ) : (
                   <div>
                     <p className="text-red-400 text-xs mb-1">* You must be a club member to book a chalet</p>
-                    <Button onClick={() => window.open('/register', '_self')} className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold">Register as a club member</Button>
+                    <Button onClick={() => window.open("/register", "_self")} className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold">Register as a club member</Button>
                   </div>
                 )}
               </div>
@@ -219,7 +230,7 @@ export default function CustomCards() {
                 <ModalHeader className="flex flex-col gap-1">{`Congratulations on your purchase, ${user?.firstName}!`}</ModalHeader>
                 <ModalBody>
                   <p className="text-md">{getChaletMessage(chalets[currentIndex].name).description}</p>
-                  <p className="text-md">You will receive a confirmation email shortly with all the details about your purchase, including your chalet's amenities and check-in instructions. If you have any questions or need assistance, feel free to reach out to our support team. Thank you for choosing us for your stay; we look forward to welcoming you soon!</p>
+                  <p className="text-md">You will receive a confirmation email shortly with all the details about your purchase, including your chalet{"'"}s amenities and check-in instructions. If you have any questions or need assistance, feel free to reach out to our support team. Thank you for choosing us for your stay; we look forward to welcoming you soon!</p>
 
                 </ModalBody>
                 <ModalFooter>

@@ -11,6 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <NextUIProvider navigate={router.push}>
+        <title>Maunga Ski Field</title>
         <Component {...pageProps} />
     </NextUIProvider>
   );

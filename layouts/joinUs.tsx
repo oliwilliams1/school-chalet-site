@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import { Button } from "@nextui-org/button"
+import { Button } from "@nextui-org/button";
 import Link from "next/link";
 
 export default function JoinUs() {
@@ -42,11 +42,18 @@ export default function JoinUs() {
               transition={{ duration: 0.3 }}
               className="mt-8 max-w-[80%] text-white text-lg"
             >
-              <p className="text-white text-lg text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non itaque molestiae officia dicta ipsam, nam quia perferendis ad sit est dolor incidunt explicabo voluptatem eaque laboriosam necessitatibus eius odit! Inventore.</p>
+              <p className="text-white text-lg text-center">
+                As a member, you'll gain access to exclusive ski events, 
+                workshops, and social gatherings. Enjoy the thrill of skiing 
+                with fellow enthusiasts, receive expert tips from seasoned 
+                skiers, and make lifelong friendships while navigating 
+                the slopes together. Join us for a season filled with 
+                adventure and unforgettable experiences!
+              </p>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
     </div>
-  )
+  );
 }

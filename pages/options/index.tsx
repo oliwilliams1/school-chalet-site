@@ -1,6 +1,5 @@
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
-
 import CustomCard from "@/layouts/customCard";
 
 import { DownArrowIcon } from "@/components/icons";

@@ -26,8 +26,8 @@ export default function Index() {
       <Header />
 
       <div className="absolute w-full h-screen z-10 bg-black bg-opacity-50">
-        <h1 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl font-bold text-white">MAUNGA PEAK</h1>
-        <h2 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 mt-12 text-2xl text-white">A New Zealand Favourite</h2>
+        <h1 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-7xl font-bold text-white montserrat">MAUNGA PEAK</h1>
+        <h2 className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 mt-12 text-2xl text-white montserrat">A New Zealand Favourite</h2>
         <DownArrowIcon className="w-6 h-6 absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2" onClick={scrollDown} cursor={"pointer"}/>
       </div>
 
