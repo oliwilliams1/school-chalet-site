@@ -114,7 +114,7 @@ export default function Index() {
       <div className="w-full bg-gradient-to-br from-teal-700 to-sky-700 p-6 md:p-24">
         <h2 className="text-white text-3xl md:text-4xl text-center mb-6">Discover the Wonders of Maunga Ski Resort</h2>
         <p className="text-white text-base md:text-lg text-center sm:max-w-[60%] mx-auto">
-          Experience the thrill of skiing and snowboarding on our world-class slopes, surrounded by the breathtaking beauty of the Maunga mountain range. With over 50 runs catering to all skill levels, there's something for everyone to enjoy.
+          Experience the thrill of skiing and snowboarding on our world-class slopes, surrounded by the breathtaking beauty of the Maunga mountain range. With over 50 runs catering to all skill levels, there{"'"}s something for everyone to enjoy.
         </p>
       </div>
 

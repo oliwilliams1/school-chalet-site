@@ -1,5 +1,3 @@
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay'
 import CustomCard from "@/layouts/customCard";
 
 import { DownArrowIcon } from "@/components/icons";
@@ -8,8 +6,6 @@ import Footer from "@/layouts/footer"
 import JoinUs from '@/layouts/joinUs';
 
 export default function StayWithUs() {
-  const [emblaRef] = useEmblaCarousel({loop: false}, [Autoplay()])
-
   const scrollDown = () => {
     const targetSection = document.getElementById("carasoul-scroll-to");
     if (targetSection) {
