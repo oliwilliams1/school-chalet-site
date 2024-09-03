@@ -69,19 +69,19 @@ export default function InteractiveImage() {
       <h1 className="text-6xl font-bold text-center text-white">THE MOUNTAINS</h1>
 
       <Point
-        className="top-[21rem] left-[43%]"
+        className="top-[23rem] md:top-[21rem] left-[48%] md:left-[43%]"
         onClick={() => handlePointClick(0)}
       />
       <Point
-        className="top-[27rem] left-[25%]"
+        className="top-[27rem] left-[20%] md:left-[25%]"
         onClick={() => handlePointClick(1)}
       />
       <Point
-        className="top-[33rem] left-[82%]"
+        className="top-[33rem] left-[94%] md:left-[82%]"
         onClick={() => handlePointClick(2)}
       />
       <Point
-        className="top-[25rem] left-[62%]"
+        className="top-[25rem] left-[70%] md:left-[62%]"
         onClick={() => handlePointClick(3)}
       />
 
@@ -95,7 +95,7 @@ export default function InteractiveImage() {
             transition={{
               duration: 0.3,
             }}
-            className="absolute bg-white max-w-[20rem] shadow-lg rounded-lg p-4 z-20 ml-[-10rem] mt-8"
+            className="absolute bg-white max-w-[15rem] sm:max-w-[20rem] shadow-lg rounded-lg p-4 z-20 ml-[-10rem] mt-8"
             style={{
               top: `${
                 pointData[activePoint].title === pointData[0].title
