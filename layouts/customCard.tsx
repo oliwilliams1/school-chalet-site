@@ -113,6 +113,7 @@ export default function CustomCards() {
   }, []);
 
   const handleCardClick = (index : number) => {
+    console.log("Card clicked:", index);
     if (expandedCardIndex !== index) {
       setExpandedCardIndex(index);
       setSlides(chalets[index].images);
@@ -129,13 +130,16 @@ export default function CustomCards() {
   };
 
   return (
-    <div className="flex w-screen h-[90vh] bg-slate-100" id="carasoul-scroll-to">
+    <div className="flex w-screen h-full md:h-[90vh] bg-slate-100" id="carasoul-scroll-to">
       <div className="w-full md:w-[25rem] h-full bg-slate-100 z-10">
-        <div className="w-full h-full">
+        <div className="w-full h-full p-4">
+
+          {isMobile && (<p className="text-center font-bold text-lg mb-4">Explore our chalets by clicking on one to find out more and book your getaway</p>)}
+          
           {chalets.map((chalet, index) => (
             <motion.div
               key={index}
-              className={`p-4 ${!isMobile ? "transition-all duration-300 transform hover:translate-x-[1rem]" : "mx-auto"}`}
+              className={`mb-4 md:mb-2 ${!isMobile ? "transition-all duration-300 transform hover:translate-x-[1rem]" : "mx-auto"}`}
               onClick={() => handleCardClick(index)}
               animate={{
                 marginLeft: !isMobile && index === expandedCardIndex ? 20 : 0,
@@ -143,7 +147,7 @@ export default function CustomCards() {
                 height: !isMobile && index === expandedCardIndex ? "35%" : "32%",
               }}
               transition={{
-                duration: 0.3,
+                duration: 0.075,
                 ease: 'easeInOut',
               }}
             >
