@@ -140,7 +140,7 @@ export default function CustomCards() {
       <div className="w-full md:w-[25rem] h-full bg-slate-100 z-10">
         <div className="w-full h-full p-4">
 
-          {isMobile && (<p className="text-center font-bold text-lg mb-4">Explore our chalets by clicking on one to find out more and book your getaway</p>)}
+          {isMobile && (<p className="text-center font-bold text-lg mb-4 montserrat">Explore our chalets by clicking on one to find out more and book your getaway</p>)}
           
           {chalets.map((chalet, index) => (
             <motion.div
@@ -159,8 +159,8 @@ export default function CustomCards() {
             >
               <Card className="w-full h-full shadow-lg" isBlurred isFooterBlurred>
                 <CardHeader className="pb-0 pt-2 px-4 flex flex-col items-start">
-                  <h2 className="font-bold text-xl text-gray-800">{chalet.name}</h2>
-                  <small className="text-gray-600">{chalet.shortDesc}</small>
+                  <h2 className="font-bold text-xl text-gray-800 montserrat">{chalet.name}</h2>
+                  <small className="text-gray-600 montserrat">{chalet.shortDesc}</small>
                 </CardHeader>
                 <CardBody>
                   <div 
@@ -227,12 +227,12 @@ export default function CustomCards() {
             <Card className="w-full h-full">
               <CardHeader>
                 <div>
-                  <h1 className="text-3xl font-bold">{chalets[expandedCardIndex]?.name}</h1>
-                  <h2 className="text-md font-semibold">{chalets[expandedCardIndex]?.shortDesc}</h2>
+                  <h1 className="text-3xl font-bold montserrat">{chalets[expandedCardIndex]?.name}</h1>
+                  <h2 className="text-md font-semibold montserrat">{chalets[expandedCardIndex]?.shortDesc}</h2>
                 </div>
               </CardHeader>
               <CardBody>
-                <p className="text-md">{chalets[expandedCardIndex]?.largeDesc}</p>
+                <p className="text-md montserrat">{chalets[expandedCardIndex]?.largeDesc}</p>
               </CardBody>
               <CardFooter>
               {isBookedMobile ? (
@@ -251,13 +251,13 @@ export default function CustomCards() {
                     <Button
                       isDisabled={!hasDateRangeBeenChosen}
                       onPress={() => setIsBookedMobile(true)} 
-                      className={`w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold ${hasDateRangeBeenChosen ? "" : "cursor-not-allowed"}`}
+                      className={`w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold montserrat ${hasDateRangeBeenChosen ? "" : "cursor-not-allowed"}`}
                     >
                       Book now!
                     </Button>
                   ) : (
                     <div>
-                      <p className="text-red-400 text-xs mb-1">* You must be a club member to book a chalet</p>
+                      <p className="text-red-400 text-xs mb-1 montserrat">* You must be a club member to book a chalet</p>
                       <Button onClick={() => window.open("/register", "_self")} className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold">
                         Register as a club member
                       </Button>

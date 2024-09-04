@@ -48,72 +48,72 @@ export default function Index() {
 
       <div className="w-full bg-slate-200 flex flex-col justify-center items-center pt-10">
         <div className="w-24 h-24 rounded-full mb-8 bg-cover bg-center" style={{ backgroundImage: `url('/logo/transparant.png')` }}></div>
-        <h1 className="text-3xl md:text-6xl font-bold text-center max-w-[85vw]">Welcome to Our Slopes</h1>
+        <h1 className="text-3xl md:text-6xl font-bold text-center max-w-[85vw] montserrat">Welcome to Our Slopes</h1>
         <Divider className="my-4 w-[70vw] md:w-[20vw] ml-auto mr-auto" />
-        <p className="w-[90%] md:w-[40vw] text-center mx-auto">
+        <p className="w-[90%] md:w-[40vw] text-center mx-auto montserrat">
           Discover the ultimate winter adventure at our premier ski and snowboard field. Experience world-class slopes, stunning mountain views, and top-notch facilities for an unforgettable getaway.
         </p>
 
         <div className="flex flex-col md:flex-row justify-center w-full p-6 md:p-14 sm:gap-12">
           <Card className="w-72 m-4 mx-auto sm:mx-0">
             <CardHeader>
-              <h1 className="text-2xl font-bold text-center">Weather</h1>
+              <h1 className="text-2xl font-bold text-center montserrat">Weather</h1>
             </CardHeader>
             <CardBody>
               <div className="flex h-16 m-auto">
                 <img className="h-full" src="/resources/home/weather.svg" alt="Weather icon" />
                 <div className="mt-auto mb-auto pl-2">
-                  <p className="text-2xl font-semibold">3.4°C</p>
+                  <p className="text-2xl font-semibold montserrat">3.4°C</p>
                   <p>Maunga peak</p>
                 </div>
               </div>
             </CardBody>
             <CardFooter>
-              <p className="text-xl font-semibold text-center">Partly cloudy</p>
+              <p className="text-xl font-semibold text-center montserrat">Partly cloudy</p>
             </CardFooter>
           </Card>
 
           <Card className="w-72 m-4 mx-auto sm:mx-0">
             <CardHeader>
-              <h1 className="text-2xl font-bold text-center">Snow Conditions</h1>
+              <h1 className="text-2xl font-bold text-center montserrat">Snow Conditions</h1>
             </CardHeader>
             <CardBody>
               <div className="flex h-16 m-auto">
                 <img className="h-full" src="/resources/home/snowflake.svg" alt="Snowflake icon" />
                 <div className="mt-auto mb-auto pl-2">
-                  <p className="text-2xl font-semibold">45cm</p>
+                  <p className="text-2xl font-semibold montserrat">45cm</p>
                   <p>Base Depth</p>
                 </div>
               </div>
             </CardBody>
             <CardFooter>
-              <p className="text-xl font-semibold text-center">Powder</p>
+              <p className="text-xl font-semibold text-center montserrat">Powder</p>
             </CardFooter>
           </Card>
 
           <Card className="w-72 m-4 mx-auto sm:mx-0">
             <CardHeader>
-              <h1 className="text-2xl font-bold text-center">Lift Status</h1>
+              <h1 className="text-2xl font-bold text-center montserrat">Lift Status</h1>
             </CardHeader>
             <CardBody>
               <div className="flex h-16 m-auto">
                 <img className="h-full" src="/resources/home/chairlift.jpeg" alt="Chairlift icon" />
                 <div className="mt-auto mb-auto pl-2">
-                  <p className="text-2xl font-semibold">8/10</p>
+                  <p className="text-2xl font-semibold montserrat">8/10</p>
                   <p>Lifts Open</p>
                 </div>
               </div>
             </CardBody>
             <CardFooter>
-              <p className="text-xl font-semibold text-center">Minimal Delays</p>
+              <p className="text-xl font-semibold text-center montserrat">Minimal Delays</p>
             </CardFooter>
           </Card>
         </div>
       </div>
 
       <div className="w-full bg-gradient-to-br from-teal-700 to-sky-700 p-6 md:p-24">
-        <h2 className="text-white text-3xl md:text-4xl text-center mb-6">Discover the Wonders of Maunga Ski Resort</h2>
-        <p className="text-white text-base md:text-lg text-center sm:max-w-[60%] mx-auto">
+        <h2 className="text-white text-3xl md:text-4xl text-center mb-6 montserrat">Discover the Wonders of Maunga Ski Resort</h2>
+        <p className="text-white text-base md:text-lg text-center sm:max-w-[60%] mx-auto montserrat">
           Experience the thrill of skiing and snowboarding on our world-class slopes, surrounded by the breathtaking beauty of the Maunga mountain range. With over 50 runs catering to all skill levels, there{"'"}s something for everyone to enjoy.
         </p>
       </div>
@@ -124,8 +124,8 @@ export default function Index() {
       </div>
 
       <div className="w-full bg-gradient-to-tr from-slate-600 to-slate-500 pt-10 pb-16 px-8">
-        <h1 className="text-white font-bold text-2xl md:text-4xl text-center mb-2">Looking for a Place to Stay?</h1>
-        <h2 className="text-white text-lg md:text-xl text-center mb-8">Discover our chalets, perfect for every type of group.</h2>
+        <h1 className="text-white font-bold text-2xl md:text-4xl text-center mb-2 montserrat">Looking for a Place to Stay?</h1>
+        <h2 className="text-white text-lg md:text-xl text-center mb-8 montserrat">Discover our chalets, perfect for every type of group.</h2>
         <div className="flex flex-wrap justify-center w-full h-full mx-auto">
           {chalets.map((chalet, index) => (
             <a 

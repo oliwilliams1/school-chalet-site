@@ -67,17 +67,17 @@ export const Header: React.FC = () => {
           height={36}
           className="rounded-full"
         />
-        <h2 className={`mt-1 ml-2 text-lg font-bold ${isScrolled ? `text-black` : `text-white`} transition-all duration-300`}>Maunga Ski Field</h2>
+        <h2 className={`mt-1 ml-2 text-lg font-bold montserrat ${isScrolled ? `text-black` : `text-white`} transition-all duration-300`}>Maunga Ski Field</h2>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         
         <NavbarItem>
-          <Link color="foreground" className={`${isScrolled ? `text-black` : `text-white`} transition-all duration-300`} href=".">
+          <Link color="foreground" className={`montserrat ${isScrolled ? `text-black` : `text-white`} transition-all duration-300`} href=".">
             Home
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" className={`${isScrolled ? `text-black` : `text-white`} transition-all duration-300`} href="/options">
+          <Link color="foreground" className={`montserrat ${isScrolled ? `text-black` : `text-white`} transition-all duration-300`} href="/options">
             Our Chalets
           </Link>
         </NavbarItem>
@@ -96,16 +96,16 @@ export const Header: React.FC = () => {
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-              <p className={`${isScrolled ? `text-black` : `text-white`} my-auto m-2`}>{userName}</p>
+              <p className={`montserrat ${isScrolled ? `text-black` : `text-white`} my-auto m-2`}>{userName}</p>
             </div>
           ) : (
             <Button
               as={Link}
-              className={`${isScrolled ? `bg-blue-300` : `bg-slate-600`} transition-all duration-300`}
+              className={`montserrat ${isScrolled ? `bg-blue-300` : `bg-slate-600`} transition-all duration-300`}
               href="/register"
               variant="flat"
             >
-              <p className={`${isScrolled ? `text-black` : `text-white`} transition-all duration-300`}>
+              <p className={`montserrat ${isScrolled ? `text-black` : `text-white`} transition-all duration-300`}>
                 Join The Club
               </p>
             </Button>

@@ -104,13 +104,13 @@ export default function SignUpPage() {
             variants={notificationVariants}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-2xl font-semibold text-white">Welcome Aboard!</h1>
-            <h2 className="text-md text-white">Registration successfull, redirecting shortly</h2>
+            <h1 className="text-2xl font-semibold text-white montserrat">Welcome Aboard!</h1>
+            <h2 className="text-md text-white montserrat">Registration successfull, redirecting shortly</h2>
           </motion.div>
         )}
         <div className="max-w-[22rem] md:max-w-[28rem] w-full mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl p-8 shadow-lg bg-white dark:bg-black">
-          <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">Create Your Account</h2>
-          <p className="mb-6 text-neutral-600 dark:text-neutral-400">Please fill in the details below to become a member</p>
+          <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200 montserrat">Create Your Account</h2>
+          <p className="mb-6 text-neutral-600 dark:text-neutral-400 montserrat">Please fill in the details below to become a member</p>
 
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
             <div className="flex flex-col space-y-2 w-full">
@@ -122,7 +122,7 @@ export default function SignUpPage() {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 classNames={{
-                  label: "text-black/50 dark:text-white/90",
+                  label: "text-black/50 dark:text-white/90 montserrat",
                   inputWrapper: `border-2 ${inputErrors.firstName ? 'border-red-500' : ''}`,
                 }}
               />
@@ -136,7 +136,7 @@ export default function SignUpPage() {
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 classNames={{
-                  label: "text-black/50 dark:text-white/90",
+                  label: "text-black/50 dark:text-white/90 montserrat",
                   inputWrapper: `border-2 ${inputErrors.lastName ? 'border-red-500' : ''}`,
                 }}
               />
@@ -152,7 +152,7 @@ export default function SignUpPage() {
               value={physicalAddress}
               onChange={(e) => setPhysicalAddress(e.target.value)}
               classNames={{
-                label: "text-black/50 dark:text-white/90",
+                label: "text-black/50 dark:text-white/90 montserrat",
                 inputWrapper: `border-2 ${inputErrors.physicalAddress ? 'border-red-500' : ''}`,
               }}
             />
@@ -162,7 +162,7 @@ export default function SignUpPage() {
             <div className="flex flex-col">
               <p className="font-normal text-sm text-neutral-600 dark:text-neutral-400">Proof of Address</p>
               <Button
-                className={`mt-1 p-3 border-2 rounded-lg transition duration-300 ${addressUploaded ? 'border-green-500' : (inputErrors.addressFile ? 'border-red-500' : 'bg-slate-100 hover:bg-slate-200')}`}
+                className={`mt-1 p-3 border-2 rounded-lg transition duration-300 montserrat ${addressUploaded ? 'border-green-500' : (inputErrors.addressFile ? 'border-red-500' : 'bg-slate-100 hover:bg-slate-200')}`}
                 onClick={() => handleUploadClick(fileInputRefAddress)}
               >
                 {addressUploaded ? `Uploaded: ${addressFileName}` : 'Upload'}
@@ -179,7 +179,7 @@ export default function SignUpPage() {
             <div className="flex flex-col">
               <p className="font-normal text-sm text-neutral-600 dark:text-neutral-400">Proof of ID</p>
               <Button
-                className={`mt-1 p-3 border-2 rounded-lg transition duration-300 ${idUploaded ? 'border-green-500' : (inputErrors.idFile ? 'border-red-500' : 'bg-slate-100 hover:bg-slate-200')}`}
+                className={`mt-1 p-3 border-2 rounded-lg transition duration-300 montserrat ${idUploaded ? 'border-green-500' : (inputErrors.idFile ? 'border-red-500' : 'bg-slate-100 hover:bg-slate-200')}`}
                 onClick={() => handleUploadClick(fileInputRefID)}
               >
                 {idUploaded ? `Uploaded: ${idFileName}` : 'Upload'}
@@ -195,7 +195,7 @@ export default function SignUpPage() {
           </div>
 
           <Button
-            className="w-full mt-6 p-3 bg-green-200 rounded-lg hover:bg-green-300 transition duration-300"
+            className="w-full mt-6 p-3 bg-green-200 montserrat rounded-lg hover:bg-green-300 transition duration-300"
             onClick={handleRegister}
           >Register</Button>
         </div>
