@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
+import Link from "next/link";
+import { Button } from "@nextui-org/button";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from "@nextui-org/navbar";
 import { Avatar, AvatarGroup, AvatarIcon } from "@nextui-org/avatar";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem } from "@nextui-org/dropdown";
 
@@ -119,7 +121,6 @@ export const Header: React.FC = () => {
               }
               className="w-full"
               href={item.path}
-              size="lg"
             >
               {item.label}
             </Link>
