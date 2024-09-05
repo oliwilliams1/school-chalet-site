@@ -2,7 +2,7 @@ import { Divider } from "@nextui-org/divider";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 import { DownArrowIcon } from "@/components/icons";
 import { Header } from "@/layouts/head"
-import { chalets } from "@/layouts/customCard";
+import { chalets } from "@/layouts/ChaletSelectionDesktop";
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import Footer from "@/layouts/footer"

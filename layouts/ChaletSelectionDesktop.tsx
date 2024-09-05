@@ -10,7 +10,7 @@ interface User {
   lastName: string;
 }
 
-const getChaletMessage = (chalet : string) => {
+export const getChaletMessage = (chalet : string) => {
   switch (chalet) {
     case "Kākāpo":
       return {

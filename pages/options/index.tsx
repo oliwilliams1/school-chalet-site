@@ -1,9 +1,35 @@
-import CustomCard from "@/layouts/customCard";
-
+import ChaletSelectionDesktop from "@/layouts/ChaletSelectionDesktop";
+import ChaletSelectionMobile from "@/layouts/ChaletSelectionMobile";
+import { useState, useEffect } from "react";
 import { DownArrowIcon } from "@/components/icons";
 import { Header } from "@/layouts/head";
 import Footer from "@/layouts/footer"
 import JoinUs from '@/layouts/joinUs';
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleMediaQueryChange = (event : any) => {
+      setIsMobile(event.matches);
+    };
+
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    if (typeof window !== 'undefined') {
+      setIsMobile(mediaQuery.matches);
+      mediaQuery.addEventListener('change', handleMediaQueryChange);
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        mediaQuery.removeEventListener('change', handleMediaQueryChange);
+      }
+    };
+  }, []);
+
+  return isMobile;
+};
 
 export default function StayWithUs() {
   const scrollDown = () => {
@@ -12,6 +38,8 @@ export default function StayWithUs() {
       targetSection.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const isMobile = useIsMobile();
 
   return (
   <div>
@@ -27,8 +55,12 @@ export default function StayWithUs() {
       <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: `url('/resources/home/cropped-bungalow.jpg')`}}></div>
     </div>
     
-    <CustomCard />
-
+    { !isMobile ? 
+        <ChaletSelectionDesktop /> 
+      :
+        <ChaletSelectionMobile />
+    }
+    
     <div className="flex w-full h-full">
       <JoinUs />
       <div className="bg-image w-full h-inherit bg-cover bg-center hidden md:block" style={{ backgroundImage: `url('/resources/home/cropped-bungalow.jpg')` }}></div>
