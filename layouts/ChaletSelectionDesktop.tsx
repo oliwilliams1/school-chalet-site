@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Children } from "react";
 import { motion } from 'framer-motion';
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
+import { Input } from "@nextui-org/input";
 import { Modal,  ModalContent,  ModalHeader,  ModalBody,  ModalFooter, useDisclosure } from "@nextui-org/modal";
 import { Button } from '@nextui-org/button';
 import { DateRangePicker } from "@nextui-org/date-picker";
@@ -35,6 +36,8 @@ export const chalets = [
     shortDesc: "Our largest option, great for large groups",
     largeDesc: "Kākāpo is the largest of the chalets, accommodating up to 10 adults and 30 children. It features a spacious kitchen, dining, and living area, perfect for gatherings. With top-notch amenities, this chalet ensures a comfortable and enjoyable stay for large groups.",
     image: "/resources/chalets/kakapo/card front.jpg",
+    maxChildren: 30,
+    maxAdults: 10,
     images: [
       { src: "/resources/chalets/kakapo/card front.jpg" },
       { src: "/resources/chalets/kakapo/view.jpg" },
@@ -45,6 +48,8 @@ export const chalets = [
     shortDesc: "Great for medium-sized groups",
     largeDesc: "Pūkeko is designed for groups and families, comfortably hosting up to 6 adults and 15 children. Its layout provides privacy, with limits on adult/child numbers to ensure a pleasant atmosphere. Enjoy your own chalet experience with all the necessary features for a comfortable stay.",
     image: "/resources/chalets/pukeko/card front.jpg",
+    maxChildren: 15,
+    maxAdults: 6,
     images: [
       { src: "/resources/chalets/pukeko/card front.jpg" },
       { src: "/resources/chalets/pukeko/chalet_view.jpg" },
@@ -56,6 +61,8 @@ export const chalets = [
     shortDesc: "The best option for families",
     largeDesc: "Kererū is a great option for families, accommodating up to 2 adults and 4 children. It features two cozy bedrooms and a separate living area, making it perfect for families with 2-4 children. Enjoy a peaceful retreat in this charming chalet designed for family comfort.",
     image: "/resources/chalets/kereru/card front.jpg",
+    maxChildren: 4,
+    maxAdults: 2,
     images: [
       { src: "/resources/chalets/kereru/card front.jpg" },
       { src: "/resources/chalets/kereru/cabin_exterior.jpg" },
@@ -207,11 +214,31 @@ export default function CustomCards() {
                   onChange={handleDateChange}
                 />
                 {user ? (
-                  <Button
-                    isDisabled={!hasDateRangeBeenChosen}
-                    onPress={onOpen} 
-                    className={`w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold montserrat ${hasDateRangeBeenChosen ? "" : "cursor-not-allowed"}`}
-                  >Book now!</Button>
+                  <div>
+                    <div className="flex gap-2 py-2">
+                      <Input
+                        size="sm"
+                        label="Adults"
+                        min="0"
+                        max={chalets[expandedCardIndex]?.maxAdults}
+                        description={`Maximum ${chalets[expandedCardIndex]?.maxAdults}`}
+                        type="number"
+                      />
+                      <Input
+                        size="sm"
+                        label="Children"
+                        min="0"
+                        max={chalets[expandedCardIndex]?.maxChildren}
+                        description={`Maximum ${chalets[expandedCardIndex]?.maxChildren}`}
+                        type="number"
+                      />
+                    </div>
+                    <Button
+                      isDisabled={!hasDateRangeBeenChosen}
+                      onPress={onOpen} 
+                      className={`w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold montserrat ${hasDateRangeBeenChosen ? "" : "cursor-not-allowed"}`}
+                    >Book now!</Button>
+                  </div>
                 ) : (
                   <div>
                     <p className="text-red-400 text-xs mb-1 montserrat">* You must be a club member to book a chalet</p>
