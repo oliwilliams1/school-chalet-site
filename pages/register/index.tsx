@@ -77,6 +77,8 @@ export default function SignUpPage() {
       setTimeout(() => {
           setRegistrationSuccess(false);
           window.history.back()
+
+          // HAVE TO REFRESH THE PAGE - CHECK THIS
       }, 3000);
     }
   };
