@@ -66,7 +66,7 @@ export default function InteractiveImage() {
       className="w-full h-[900px] z-10 pt-20 relative bg-cover bg-center"
       style={{ backgroundImage: `url('/resources/home/mountain-2.jpg')` }}
     >
-      <h1 className="text-6xl font-bold text-center text-white montserrat max-w-[90vw]">THE MOUNTAINS</h1>
+      <h1 className="text-6xl font-bold text-center text-white montserrat max-w-[90vw] mx-auto">THE MOUNTAINS</h1>
 
       <Point
         className="top-[23rem] md:top-[21rem] left-[48%] md:left-[43%]"
