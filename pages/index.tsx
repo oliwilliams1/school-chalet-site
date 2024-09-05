@@ -57,55 +57,55 @@ export default function Index() {
         <div className="flex flex-col md:flex-row justify-center w-full p-6 md:p-14 sm:gap-12">
           <Card className="w-72 m-4 mx-auto sm:mx-0">
             <CardHeader>
-              <h1 className="text-2xl font-bold text-center montserrat">Weather</h1>
+              <h1 className="text-2xl font-bold mx-auto montserrat">Weather</h1>
             </CardHeader>
-            <CardBody>
-              <div className="flex h-16 m-auto">
+            <CardBody className="flex flex-col items-center justify-center h-32"> {/* Adjust height as necessary */}
+              <div className="flex h-16 items-center">
                 <img className="h-full" src="/resources/home/weather.svg" alt="Weather icon" />
-                <div className="mt-auto mb-auto pl-2">
+                <div className="pl-2 text-center">
                   <p className="text-2xl font-semibold montserrat">3.4°C</p>
                   <p>Maunga peak</p>
                 </div>
               </div>
             </CardBody>
             <CardFooter>
-              <p className="text-xl font-semibold text-center montserrat">Partly cloudy</p>
+              <p className="text-xl font-semibold mx-auto montserrat">Partly cloudy</p>
             </CardFooter>
           </Card>
 
           <Card className="w-72 m-4 mx-auto sm:mx-0">
             <CardHeader>
-              <h1 className="text-2xl font-bold text-center montserrat">Snow Conditions</h1>
+              <h1 className="text-2xl font-bold mx-auto montserrat">Snow Conditions</h1>
             </CardHeader>
-            <CardBody>
-              <div className="flex h-16 m-auto">
+            <CardBody className="flex flex-col items-center justify-center h-32">
+              <div className="flex h-16 items-center">
                 <img className="h-full" src="/resources/home/snowflake.svg" alt="Snowflake icon" />
-                <div className="mt-auto mb-auto pl-2">
+                <div className="pl-2 text-center">
                   <p className="text-2xl font-semibold montserrat">45cm</p>
                   <p>Base Depth</p>
                 </div>
               </div>
             </CardBody>
             <CardFooter>
-              <p className="text-xl font-semibold text-center montserrat">Powder</p>
+              <p className="text-xl font-semibold montserrat mx-auto">Powder</p>
             </CardFooter>
           </Card>
 
           <Card className="w-72 m-4 mx-auto sm:mx-0">
             <CardHeader>
-              <h1 className="text-2xl font-bold text-center montserrat">Lift Status</h1>
+              <h1 className="text-2xl font-bold mx-auto montserrat">Lift Status</h1>
             </CardHeader>
-            <CardBody>
-              <div className="flex h-16 m-auto">
+            <CardBody className="flex flex-col items-center justify-center h-32">
+              <div className="flex h-16 items-center">
                 <img className="h-full" src="/resources/home/chairlift.jpeg" alt="Chairlift icon" />
-                <div className="mt-auto mb-auto pl-2">
+                <div className="pl-2 text-center">
                   <p className="text-2xl font-semibold montserrat">8/10</p>
                   <p>Lifts Open</p>
                 </div>
               </div>
             </CardBody>
             <CardFooter>
-              <p className="text-xl font-semibold text-center montserrat">Minimal Delays</p>
+              <p className="text-xl font-semibold mx-auto montserrat">Minimal Delays</p>
             </CardFooter>
           </Card>
         </div>
@@ -134,7 +134,7 @@ export default function Index() {
               className="w-full sm:w-80 mx-4 mb-4 transition-all duration-300 transform hover:translate-y-[-1rem]"
             >
               <Card 
-                className="w-full h-full shadow-lg transition-transform transform hover:scale-105" 
+                className="w-full h-full shadow-lg transition-transform transform" 
                 isBlurred 
                 isFooterBlurred
               >

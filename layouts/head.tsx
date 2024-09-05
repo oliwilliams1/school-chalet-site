@@ -6,11 +6,38 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Navba
 import { Avatar, AvatarGroup, AvatarIcon } from "@nextui-org/avatar";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem } from "@nextui-org/dropdown";
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleMediaQueryChange = (event : any) => {
+      setIsMobile(event.matches);
+    };
+
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    if (typeof window !== 'undefined') {
+      setIsMobile(mediaQuery.matches);
+      mediaQuery.addEventListener('change', handleMediaQueryChange);
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        mediaQuery.removeEventListener('change', handleMediaQueryChange);
+      }
+    };
+  }, []);
+
+  return isMobile;
+};
+
 export const Header: React.FC = () => {
   const [user, setUser] = useState<string | null>(null);
   const [userName, setUserName] = useState('');
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
+
+  const isMobile = useIsMobile();
 
   const menuItems = [
     { label: "Home", path: "/" },
@@ -96,7 +123,7 @@ export const Header: React.FC = () => {
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-              <p className={`montserrat ${isScrolled ? `text-black` : `text-white`} my-auto m-2`}>{userName}</p>
+              <p className={`montserrat ${isScrolled ? `text-black` : `text-white`} my-auto m-2`}>{!isMobile && (userName)}</p>
             </div>
           ) : (
             <Button

@@ -24,7 +24,7 @@ const Notification: React.FC<NotificationProps> = ({ message, duration = 3000, o
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
     >
-      {message}
+      <p className="montserrat">{message}</p>
     </motion.div>
   );
 };

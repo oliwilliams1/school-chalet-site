@@ -64,6 +64,7 @@ export default function ChaletSelectionMobile() {
               <h1 className="text-2xl font-bold montserrat">{chalets[expandedCardIndex].name}</h1>
               <h2 className="text-lg font-semibold montserrat">{chalets[expandedCardIndex].shortDesc}</h2>
             </div>
+            <button onClick={() => {setShowModal(false);}} className="mb-auto ml-auto p-1 text-red-800">&times;</button>
           </CardHeader>
           <CardBody> 
             <div className="flex w-full h-[35%] z-1">
