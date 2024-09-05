@@ -4,6 +4,7 @@ import { Button } from "@nextui-org/button";
 import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 import { DateRangePicker } from "@nextui-org/date-picker";
 import { NextArrowIcon, PreviousArrowIcon } from '@/components/icons';
+import Notification from "./notification";
 
 interface User {
   firstName: string;
@@ -17,6 +18,7 @@ export default function ChaletSelectionMobile() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slides, setSlides] = useState(chalets[0].images);
   const [hasDateRangeBeenChosen, setDateRange] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const handleDateChange = (range : any) => {
     setDateRange(true);
@@ -42,6 +44,15 @@ export default function ChaletSelectionMobile() {
 
   const handleNext = () => {
     setCurrentIndex((currentIndex + 1) % slides.length);
+  };
+
+  const handleShowNotification = () => {
+    setShowModal(false);
+    setShowNotification(true);
+  };
+
+  const handleCloseNotification = () => {
+    setShowNotification(false);
   };
 
   return (
@@ -105,7 +116,7 @@ export default function ChaletSelectionMobile() {
             </div>
 
             <p className="mt-4 montserrat">{chalets[expandedCardIndex].largeDesc}</p>
-            
+
           </CardBody>
           <CardFooter>
           <div className="w-full">
@@ -120,6 +131,7 @@ export default function ChaletSelectionMobile() {
             {user ? (
               <Button
                 isDisabled={!hasDateRangeBeenChosen}
+                onPress={handleShowNotification}
                 className={`w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold ${hasDateRangeBeenChosen ? "" : "cursor-not-allowed"}`}
               >Book now!</Button>
             ) : (
@@ -151,6 +163,10 @@ export default function ChaletSelectionMobile() {
           </CardFooter>
         </Card>
       ))}
+
+      {showNotification && (
+        <Notification message="Booked Successfully!" onClose={handleCloseNotification}/>
+      )}
     </div>
   );
 }
