@@ -6,11 +6,14 @@ import { Modal,  ModalContent,  ModalHeader,  ModalBody,  ModalFooter, useDisclo
 import { Button } from '@nextui-org/button';
 import { DateRangePicker } from "@nextui-org/date-picker";
 import { NextArrowIcon, PreviousArrowIcon } from '@/components/icons';
+
+// An interface so tsx doens't complain
 interface User {
   firstName: string;
   lastName: string;
 }
 
+// Get the message for the chalet when booked
 export const getChaletMessage = (chalet : string) => {
   switch (chalet) {
     case "Kākāpo":
@@ -30,6 +33,7 @@ export const getChaletMessage = (chalet : string) => {
   }
 };
 
+// The data for the chalets
 export const chalets = [
   {
     name: "Kākāpo",
@@ -72,6 +76,7 @@ export const chalets = [
 ];
 
 export default function CustomCards() {
+  {/* Bunch of useStates for client side variables, this is how you have to do it with react */}
   const [user, setUser] = useState<User | any>(null);
   const [expandedCardIndex, setExpandedCardIndex] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -80,10 +85,12 @@ export default function CustomCards() {
 
   const [hasDateRangeBeenChosen, setDateRange] = useState(false);
 
+  {/* Handles the change in date range */}
   const handleDateChange = (range : any) => {
     setDateRange(true);
   };
 
+  {/* Grabs "user" from local storage and stores it in "setUser" */}
   useEffect(() => {
     const userData = localStorage.getItem("user");
     if (userData) {
@@ -92,6 +99,7 @@ export default function CustomCards() {
     }
   }, []);
 
+  {/* Handles click on card, sets other elements to their respective states */}
   const handleCardClick = (index : number) => {
     if (expandedCardIndex !== index) {
       setExpandedCardIndex(index);
@@ -100,10 +108,12 @@ export default function CustomCards() {
     }
   };
 
+  {/* Handles click on previous button, sets index to previous index */}
   const handlePrevious = () => {
     setCurrentIndex(currentIndex === 0 ? slides.length - 1 : currentIndex - 1);
   };
 
+  {/* Handles click on next button, sets index to next index */}
   const handleNext = () => {
     setCurrentIndex((currentIndex + 1) % slides.length);
   };
@@ -112,7 +122,7 @@ export default function CustomCards() {
     <div className="flex w-full h-[90vh] bg-slate-100" id="carasoul-scroll-to">
       <div className="w-[25rem] h-full bg-slate-100 z-10">
         <div className="w-full h-full">
-          {chalets.map((chalet, index) => (
+          {chalets.map((chalet, index) => ( // Iterate through chalets and create a motion div (framer motion for animations) for each
             <motion.div
               key={index}
               className="p-4 transition-all duration-300 transform hover:translate-x-[1rem]"
@@ -127,6 +137,7 @@ export default function CustomCards() {
                 ease: 'easeInOut',
               }}
             >
+              {/* Card to make for each chalet */}
               <Card className="w-full h-full shadow-lg" isBlurred isFooterBlurred>
                 <CardHeader className="pb-0 pt-2 px-4 flex flex-col items-start">
                   <h2 className="font-bold text-xl text-gray-800 montserrat">{chalet.name}</h2>
@@ -144,14 +155,16 @@ export default function CustomCards() {
         </div>
       </div>
 
+      {/* My own carasoul */}
       <div className="flex w-full h-full z-1">
         <div className="w-full h-full z-1 bg-[rgb(8,4,4)]">
           <div className="w-full h-full overflow-hidden">
+            {/* A wide div that scrolls by based on the current index */}
             <div
               className={`flex w-[${slides.length * 100}%] h-full transition-transform duration-500 ease-in-out`}
               style={{ width: `${slides.length * 100}%`, transform: `translateX(-${(currentIndex * 100) / slides.length}%)` }}
             >
-              {slides.map((slide, index) => (
+              {slides.map((slide, index) => ( // Iterate through slides and create a div for each
                 <div key={index} className="w-full h-full">
                   <div
                     className="w-full h-full bg-cover bg-center transition-transform duration-500 ease-in-out"
@@ -162,6 +175,7 @@ export default function CustomCards() {
             </div>
           </div>
 
+          {/* Controlled for carasoul */}
           <div className="relative flex w-full h-[4rem] bg-black opacity-70 mt-[-4rem] pt-3 z-4">
             <div className="w-1/2 h-full p-3 pl-20 pt-0">
               <Button className="p-2.5 bg-[rgb(8,4,4)] border-2 rounded-full" isIconOnly onClick={handlePrevious}>
@@ -172,6 +186,7 @@ export default function CustomCards() {
               </Button>
             </div>
 
+            {/* Further controlls for carasoul */}
             <div className="w-full h-full pb-3 pr-20">
               <div className="flex justify-end items-center w-full h-[40px]">
                 <div className="flex space-x-2">
@@ -192,6 +207,7 @@ export default function CustomCards() {
           </div>
         </div>
 
+        {/* Info on the right side, changes based on the selected chalet on the left */}
         <div className="w-[25rem] h-full bg-slate-300 z-10">
           <Card className="w-full h-full rounded-none p-3">
             <CardHeader>
@@ -205,16 +221,16 @@ export default function CustomCards() {
             </CardBody>
             <CardFooter>
               <div className="w-full">
-                <DateRangePicker
-                  className="mb-2 w-full"
-                  label="Stay duration"
-                  description="Stay duration must be Friday-Sunday"
-                  variant="bordered"
-                  isRequired
-                  onChange={handleDateChange}
-                />
-                {user ? (
+                {user ? ( // Is the user logged in? if so show the booking form
                   <div>
+                    <DateRangePicker
+                      className="mb-2 w-full"
+                      label="Stay duration"
+                      description="Stay duration must be Friday-Sunday"
+                      variant="bordered"
+                      isRequired
+                      onChange={handleDateChange}
+                    />
                     <div className="flex gap-2 py-2">
                       <Input
                         size="sm"
@@ -239,7 +255,7 @@ export default function CustomCards() {
                       className={`w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold montserrat ${hasDateRangeBeenChosen ? "" : "cursor-not-allowed"}`}
                     >Book now!</Button>
                   </div>
-                ) : (
+                ) : ( // The user is not logged in, prompt them to do so
                   <div>
                     <p className="text-red-400 text-xs mb-1 montserrat">* You must be a club member to book a chalet</p>
                     <Button onClick={() => window.open("/register", "_self")} className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold montserrat">Register as a club member</Button>
@@ -250,6 +266,7 @@ export default function CustomCards() {
           </Card>
         </div>
 
+        {/* A pop up telling the user their booking was successful */}
         <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
           <ModalContent>
             {(onClose) => (

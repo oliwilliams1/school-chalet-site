@@ -6,6 +6,7 @@ import { DateRangePicker } from "@nextui-org/date-picker";
 import { NextArrowIcon, PreviousArrowIcon } from '@/components/icons';
 import Notification from "./notification";
 
+// Make the interface so tsx doesn't complain
 interface User {
   firstName: string;
   lastName: string;
@@ -20,6 +21,7 @@ export default function ChaletSelectionMobile() {
   const [hasDateRangeBeenChosen, setDateRange] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
+  {/* Functions are the same in desktop version */}
   const handleDateChange = (range : any) => {
     setDateRange(true);
   };
@@ -57,6 +59,8 @@ export default function ChaletSelectionMobile() {
 
   return (
     <div className="flex flex-col p-4 gap-4">
+
+                        {/* Does this modal want to be shown? if so remove the "hidden" css property */}
       <div className={`${showModal ? "flex" : "hidden"} fixed inset-0 bg-black bg-opacity-70 justify-center items-center z-50`}>
         <Card className="w-[calc(100%-3rem)] h-[calc(100%-3rem)]">
           <CardHeader>
@@ -64,9 +68,11 @@ export default function ChaletSelectionMobile() {
               <h1 className="text-2xl font-bold montserrat">{chalets[expandedCardIndex].name}</h1>
               <h2 className="text-lg font-semibold montserrat">{chalets[expandedCardIndex].shortDesc}</h2>
             </div>
-            <button onClick={() => {setShowModal(false);}} className="mb-auto ml-auto p-1 text-red-800">&times;</button>
+                                    {/* Lambda function to make model close */}
+            <button onClick={() => {setShowModal(false)}} className="mb-auto ml-auto p-1 text-red-800">&times;</button>
           </CardHeader>
           <CardBody> 
+            {/* My carasoul */}
             <div className="flex w-full h-[35%] z-1">
               <div className="w-full h-full z-1 bg-[rgb(8,4,4)]">
                 <div className="w-full h-full overflow-hidden">
@@ -84,7 +90,8 @@ export default function ChaletSelectionMobile() {
                     ))}
                   </div>
                 </div>
-
+                
+                {/* Controlls */}
                 <div className="relative flex w-full h-[4rem] bg-black opacity-70 mt-[-4rem] pt-3 z-4">
                   <div className="flex w-1/2 h-full p-3 pt-0">
                     <Button className="p-2.5 bg-[rgb(8,4,4)] border-2 rounded-full" isIconOnly onClick={handlePrevious}>
@@ -94,7 +101,8 @@ export default function ChaletSelectionMobile() {
                       <NextArrowIcon />
                     </Button>
                   </div>
-
+                  
+                  {/* Futher controlls */}
                   <div className="w-full h-full pb-3 mr-4">
                     <div className="flex justify-end items-center w-full h-[40px]">
                       <div className="flex space-x-2">
@@ -115,12 +123,14 @@ export default function ChaletSelectionMobile() {
                 </div>
               </div>
             </div>
-
+            
+            {/* Large description from current chalet */}
             <p className="mt-4 montserrat">{chalets[expandedCardIndex].largeDesc}</p>
 
           </CardBody>
           <CardFooter>
           <div className="w-full">
+            {/* Booking form */}
             <DateRangePicker
               className="mb-2 w-full"
               label="Stay duration"
@@ -129,13 +139,13 @@ export default function ChaletSelectionMobile() {
               isRequired
               onChange={handleDateChange}
             />
-            {user ? (
+            {user ? ( // Is user logged in? show rest of booking form
               <Button
                 isDisabled={!hasDateRangeBeenChosen}
                 onPress={handleShowNotification}
                 className={`w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold ${hasDateRangeBeenChosen ? "" : "cursor-not-allowed"}`}
               >Book now!</Button>
-            ) : (
+            ) : ( // User isnt logged in, prompt them to do so
               <div>
                 <p className="text-red-400 text-xs mb-1 montserrat">* You must be a club member to book a chalet</p>
                 <Button onClick={() => window.open("/register", "_self")} className="w-full h-12 bg-blue-400 hover:bg-blue-700 text-white font-bold montserrat">Register as a club member</Button>
@@ -146,7 +156,7 @@ export default function ChaletSelectionMobile() {
         </Card>
       </div>
       
-
+      {/* List of chalets */}
       {chalets.map((chalet, index) => (
         <Card className="w-full h-full shadow-lg" isBlurred isFooterBlurred>
           <CardHeader className="pb-0 pt-2 px-4 flex flex-col items-start">
@@ -165,6 +175,7 @@ export default function ChaletSelectionMobile() {
         </Card>
       ))}
 
+      {/* Notification */}
       {showNotification && (
         <Notification message="Booked Successfully!" onClose={handleCloseNotification}/>
       )}

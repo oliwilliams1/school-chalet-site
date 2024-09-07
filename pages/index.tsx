@@ -10,8 +10,11 @@ import InteractiveImage from '@/layouts/interactiveImage';
 import JoinUs from '@/layouts/joinUs';
 
 export default function Index() {
+  // Create a reference for the carasoul to use
   const [emblaRef] = useEmblaCarousel({loop: false, duration: 50}, [Autoplay({delay: 7500})])
 
+  
+  // Scrolls down to the element with the id "mountain-scroll-to" with a smooth animation.
   const scrollDown = () => {
     const targetSection = document.getElementById("mountain-scroll-to");
     if (targetSection) {
@@ -21,45 +24,52 @@ export default function Index() {
   
   return (
     <div>
+      {/* Header on the top of the page */}
       <Header />
 
+      {/* Text and stuff ontop of the carasoul */}
       <div className="absolute w-full h-screen z-10 bg-black bg-opacity-50 flex flex-col justify-center items-center">
         <h1 className="text-5xl md:text-7xl font-bold text-white montserrat text-center">MAUNGA PEAK</h1>
         <h2 className="mt-4 text-lg md:text-2xl text-white montserrat text-center">A New Zealand Favourite</h2>
         <DownArrowIcon 
           className="w-6 h-6 mt-8 cursor-pointer" 
-          onClick={scrollDown} 
+          onClick={scrollDown} // On click call the scrollDown function, which schrolls down!
           aria-label="Scroll down"
         />
       </div>
 
+      {/* Apply the carasoul ref to this div, which makes this work */}
       <div className="w-full h-screen overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/snowboarding-4878696.jpg')`}}></div>
-          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/mountains-6005824.jpg')`}}></div>
-          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/ski-1075456.jpg')`}}></div>
-          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/skiing-4835024.jpg')`}}></div>
+          {/* All slides are a div with a background image */}
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/snowboarding-4878696.jpg')`}} />
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/mountains-6005824.jpg')`}} />
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/ski-1075456.jpg')`}} />
+          <div className="flex-[0_0_100%] min-w-0 h-screen bg-cover bg-center" style={{backgroundImage: `url('/resources/home/skiing-4835024.jpg')`}} />
         </div>
       </div>
 
-      {/*'Mountain image: https://pixabay.com/photos/mountain-mt-egmont-mt-taranaki-1144506/'*/}
-
+      {/* An interactive image with image hotspots to select some more data */}
+      {/* It is its own component because there is to much code to fit in the index file (here) */}
       <InteractiveImage />
 
+      {/* Info section */}
       <div className="w-full bg-slate-200 flex flex-col justify-center items-center pt-10">
-        <div className="w-24 h-24 rounded-full mb-8 bg-cover bg-center" style={{ backgroundImage: `url('/logo/transparant.png')` }}></div>
+        <div className="w-24 h-24 rounded-full mb-8 bg-cover bg-center" style={{ backgroundImage: `url('/logo/transparant.png')` }} /> {/* Logo */}
         <h1 className="text-3xl md:text-6xl font-bold text-center max-w-[85vw] montserrat">Welcome to Our Slopes</h1>
         <Divider className="my-4 w-[70vw] md:w-[20vw] ml-auto mr-auto" />
         <p className="w-[90%] md:w-[40vw] text-center mx-auto montserrat">
           Discover the ultimate winter adventure at our premier ski and snowboard field. Experience world-class slopes, stunning mountain views, and top-notch facilities for an unforgettable getaway.
         </p>
 
+        {/* A container div with 3 cards, centered on dekstop, vertically aligned on mobile */}
         <div className="flex flex-col md:flex-row justify-center w-full p-6 md:p-14 sm:gap-12">
+          {/* Card 1 */}
           <Card className="w-72 m-4 mx-auto sm:mx-0">
             <CardHeader>
               <h1 className="text-2xl font-bold mx-auto montserrat">Weather</h1>
             </CardHeader>
-            <CardBody className="flex flex-col items-center justify-center h-32"> {/* Adjust height as necessary */}
+            <CardBody className="flex flex-col items-center justify-center h-32">
               <div className="flex h-16 items-center">
                 <img className="h-full" src="/resources/home/weather.svg" alt="Weather icon" />
                 <div className="pl-2 text-center">
@@ -73,6 +83,7 @@ export default function Index() {
             </CardFooter>
           </Card>
 
+          {/* Card 2 */}
           <Card className="w-72 m-4 mx-auto sm:mx-0">
             <CardHeader>
               <h1 className="text-2xl font-bold mx-auto montserrat">Snow Conditions</h1>
@@ -91,6 +102,7 @@ export default function Index() {
             </CardFooter>
           </Card>
 
+          {/* Card 3 */}
           <Card className="w-72 m-4 mx-auto sm:mx-0">
             <CardHeader>
               <h1 className="text-2xl font-bold mx-auto montserrat">Lift Status</h1>
@@ -111,6 +123,7 @@ export default function Index() {
         </div>
       </div>
 
+      {/* Info block section */}
       <div className="w-full bg-gradient-to-br from-teal-700 to-sky-700 p-6 md:p-24">
         <h2 className="text-white text-3xl md:text-4xl text-center mb-6 montserrat">Discover the Wonders of Maunga Ski Resort</h2>
         <p className="text-white text-base md:text-lg text-center sm:max-w-[60%] mx-auto montserrat">
@@ -118,16 +131,19 @@ export default function Index() {
         </p>
       </div>
 
+      {/* Join us section on the left, image on the right */}
       <div className="flex w-full h-full">
+        {/* Seperate componnent in layout cause too much code for here */}
         <JoinUs />
         <div className="bg-image w-full h-inherit bg-cover bg-center hidden md:block" style={{ backgroundImage: `url('/resources/home/cropped-bungalow.jpg')` }}></div>
       </div>
 
+      {/* 3 cards for chalets, all of which navigate to /options */}
       <div className="w-full bg-gradient-to-tr from-slate-600 to-slate-500 pt-10 pb-16 px-8">
         <h1 className="text-white font-bold text-2xl md:text-4xl text-center mb-2 montserrat">Looking for a Place to Stay?</h1>
         <h2 className="text-white text-lg md:text-xl text-center mb-8 montserrat">Discover our chalets, perfect for every type of group.</h2>
         <div className="flex flex-wrap justify-center w-full h-full mx-auto">
-          {chalets.map((chalet, index) => (
+          {chalets.map((chalet, index) => ( // Iterate through the list of chalets definieed in layout/ChaletSelectionDresktop.tsx and generate a card
             <a 
               key={index} 
               href="/options" 
@@ -154,6 +170,7 @@ export default function Index() {
         </div>
       </div>
 
+      {/* Ive got a hint this is a footer?! */}
       <Footer />
   </div>)
 }

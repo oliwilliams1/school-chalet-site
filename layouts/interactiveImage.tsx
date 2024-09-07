@@ -1,11 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
+// Interface so tsx doesnt scream in pain
 interface PointProps {
   className?: string;
   onClick?: () => void;
 }
 
+// A function that makes an html framer motion div for each point
 function Point({ className = "", onClick }: PointProps) {
   return (
     <motion.div
@@ -29,6 +31,7 @@ function Point({ className = "", onClick }: PointProps) {
 export default function InteractiveImage() {
   const [activePoint, setActivePoint] = useState<number | null>(null);
 
+  {/* Point data, holds title and content */}
   const pointData = [
     {
       title: "The Peak",
@@ -67,7 +70,7 @@ export default function InteractiveImage() {
       style={{ backgroundImage: `url('/resources/home/mountain-2.jpg')` }}
     >
       <h1 className="text-6xl font-bold text-center text-white montserrat max-w-[90vw]">THE MOUNTAINS</h1>
-
+      {/* Bunch of points */}
       <Point
         className="top-[23rem] md:top-[21rem] left-[48%] md:left-[43%]"
         onClick={() => handlePointClick(0)}
@@ -96,6 +99,8 @@ export default function InteractiveImage() {
               duration: 0.3,
             }}
             className="absolute bg-white max-w-[15rem] sm:max-w-[20rem] shadow-lg rounded-lg p-4 z-20 ml-[-10rem] mt-8"
+
+            // Positioning for the popup based on the active point
             style={{
               top: `${
                 pointData[activePoint].title === pointData[0].title

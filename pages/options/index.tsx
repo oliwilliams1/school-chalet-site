@@ -55,10 +55,11 @@ export default function StayWithUs() {
       <div className="w-full h-full bg-cover bg-center" style={{backgroundImage: `url('/resources/home/cropped-bungalow.jpg')`}}></div>
     </div>
     
+    {/* Switch which comononent is used here based on whether mobile or not */}
     { !isMobile ? 
-        <ChaletSelectionDesktop /> 
+        <ChaletSelectionDesktop /> // Custom comononent for desktop
       :
-        <ChaletSelectionMobile />
+        <ChaletSelectionMobile /> // Custom comononent for mobile
     }
     
     <div className="flex w-full h-full">
